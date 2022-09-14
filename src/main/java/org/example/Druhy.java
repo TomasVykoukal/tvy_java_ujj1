@@ -130,6 +130,93 @@ public class Druhy {
         promile = ((double) (j2 - i8) / (double) i8) * 1000.0;
         System.out.println("promile = " + promile);
 
+// binární operátory
+        int i9 = 5;
+        int j9 = 13;
+        j9 = j9 / 4;
+        System.out.println("j9 = " + j9);
+        j9 = 13;
+        j9 /= 4;
+        System.out.println("j9 = " + j9);
+        j9 = i9 % 3;
+        System.out.println("j9 = " + j9);
+
+        byte b10 = 126; //127 max
+        //b10 = b10 + 3; n. b10 =  b10 + (byte) 3; incompatible types: possible lossy conversion from int to byte
+        b10 = (byte) (b10 + 3);
+        System.out.println("b10 = " + b10);
+        b10 = -126; //-128 min
+        b10 = (byte) (b10 - 5);
+        System.out.println("b10 = " + b10);
+
+// relační operátory
+        byte i11 = 1, j11 = 2, k11 = 3;
+        //if (i11 == 2 && ++j11 == 3)
+        if (i11 == 2 & ++j11 == 3)
+            k11 = 4;
+        System.out.println("i11 = " + i11 + ", j11 = " + j11 + ", k11 = " + k11);
+
+        i11 = 1; j11 = 2; k11 = 3;
+        //if (i11 == 1 || ++j11 == 2)
+        if (i11 == 1 | ++j11 == 2)
+            k11 = 4;
+        System.out.println("i11 = " + i11 + ", j11 = " + j11 + ", k11 = " + k11);
+
+        byte x = 1, y = 0, z = 2;
+        if (y != 0 && x / y < z)
+        //if (y != 0 & x / y < z) // Exception in thread "main" java.lang.ArithmeticException: / by zero at org.example.Druhy.main(Druhy.java:166)
+            /*null*/;
+
+// bitové operace
+        byte i12 = 7 & 9;
+        System.out.println("i12 = " + i12);
+
+        i12 += 1;
+        if (i12 % 2 == 0)
+            System.out.println(i12 + " je sudé");
+        if ((i12 & 1) ==0)
+            System.out.println(i12 + " je sudé");
+
+        int i13 = 1, j13 = 2, m13;
+        boolean k13;
+        //k13 = i13 && j13; bad operand types for binary operator '&&' first type: int second type: int
+        m13 = i13 & j13;
+
+        byte i14 = 7 | 9;
+        System.out.println("i14 = " + i14);
+
+        final byte VIDITELNY = 1;
+        final byte PREMISTITELNY = 2;
+        final byte MENITELNY = 4;
+        final byte SMAZATELNY = 8;
+        byte stav = 0;
+        stav |= VIDITELNY;
+        System.out.println("stav = " + stav);
+        stav |= PREMISTITELNY;
+        System.out.println("stav = " + stav);
+        stav |= SMAZATELNY;
+        System.out.println("stav = " + stav);
+
+        if ((stav & PREMISTITELNY) == PREMISTITELNY) {
+            System.out.println("Stav je PŘEMÍSTITELNÝ");
+            System.out.println("filtrovaný stav: " + (stav & PREMISTITELNY));
+        }
+
+        byte stav_invert = (byte) ~stav; //00001011 --> 11110100
+        System.out.println("invertovaný stav = " + stav_invert);
+        stav &= ~VIDITELNY;
+        System.out.println("stav = " + stav);
+        stav &= ~PREMISTITELNY;
+        System.out.println("stav = " + stav);
+        stav &= ~SMAZATELNY;
+        System.out.println("stav = " + stav);
+
+        stav &= ~(VIDITELNY | PREMISTITELNY | MENITELNY | SMAZATELNY);
+        System.out.println("stav = " + stav);
+
+
+
+
     }
 }
 
