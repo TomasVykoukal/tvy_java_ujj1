@@ -214,8 +214,63 @@ public class Druhy {
         stav &= ~(VIDITELNY | PREMISTITELNY | MENITELNY | SMAZATELNY);
         System.out.println("stav = " + stav);
 
+        byte i15 = 7 ^ 9;
+        System.out.println("i15 = " + i15);
 
+        //bitový posun doleva
+        int x1 = 3;
+        x1 <<= 1;
+        System.out.println("x <<= 1 = " + x1);
+        x1 <<= 1;
+        System.out.println("x <<= 1 = " + x1);
+        x1 <<= 2;
+        System.out.println("x <<= 2 = " + x1);
+        x1 <<= 3;
+        System.out.println("x <<= 3 = " + x1);
 
+        //bitový posun doprava znaménkově
+        x1 >>= 1;
+        System.out.println("x >>= 1 = " + x1);
+        x1 >>= 3;
+        System.out.println("x >>= 3 = " + x1);
+
+        byte x2 = 16;
+        byte x3 = -16;
+        byte x4 = -16;
+        x2 >>= 2;
+        x3 >>= 2;
+        x4 >>>= 2;
+        System.out.println("x2 >>= 2 = " + x2);
+        System.out.println("x3 >>= 2 = " + x3);
+        System.out.println("x4 >>>= 2 = " + x4);
+
+        //bitový posun vs. násobení - měření času
+        int i16;
+        int j16 = 1000000;
+
+        long start1_1 = System.nanoTime();
+        i16 = j16 * 80;
+        long end1_1 = System.nanoTime();
+        System.out.println("i16: " + i16);
+        System.out.println("Elapsed Time in nano seconds *80: "+ (end1_1 - start1_1));
+
+        long start2_1 = System.currentTimeMillis();
+        i16 = j16 * 80;
+        long end2_1 = System.currentTimeMillis();
+        System.out.println("i16: " + i16);
+        System.out.println("Elapsed Time in milli seconds *80: "+ (end2_1 - start2_1));
+
+        long start1_2 = System.nanoTime();
+        i16 = (j16 << 6) + (j16 << 4);
+        long end1_2 = System.nanoTime();
+        System.out.println("i16: " + i16);
+        System.out.println("Elapsed Time in nano seconds <<6 <<4: "+ (end1_2 - start1_2));
+
+        long start2_2 = System.currentTimeMillis();
+        i16 = (j16 << 6) + (j16 << 4);
+        long end2_2 = System.currentTimeMillis();
+        System.out.println("i16: " + i16);
+        System.out.println("Elapsed Time in milli seconds <<6 <<4: "+ (end2_2 - start2_2));
 
     }
 }
