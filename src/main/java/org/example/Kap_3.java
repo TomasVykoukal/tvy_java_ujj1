@@ -1,6 +1,6 @@
 package org.example;
 
-public class Druhy {
+public class Kap_3 {
     public static void main(String[] args){
         //int i1;
         int i1 = 5;
@@ -234,15 +234,26 @@ public class Druhy {
         x1 >>= 3;
         System.out.println("x >>= 3 = " + x1);
 
-        byte x2 = 16;
-        byte x3 = -16;
-        byte x4 = -16;
-        x2 >>= 2;
-        x3 >>= 2;
-        x4 >>>= 2;
-        System.out.println("x2 >>= 2 = " + x2);
-        System.out.println("x3 >>= 2 = " + x3);
-        System.out.println("x4 >>>= 2 = " + x4);
+        //... doprava znaménkově vs. neznaménkově
+        byte x2b = 16;
+        byte x3b = -16;
+        byte x4b = -16;
+        x2b >>= 2;
+        x3b >>= 2;
+        x4b >>>= 2;
+        System.out.println("x2b >>= 2 = " + x2b);
+        System.out.println("x3b >>= 2 = " + x3b); //neznam. posun relev. jen pro int a long
+        System.out.println("x4b >>>= 2 = " + x4b);
+
+        int x2i = 16;
+        int x3i = -16;
+        int x4i = -16;
+        x2i >>= 2;
+        x3i >>= 2;
+        x4i >>>= 2;
+        System.out.println("x2i >>= 2 = " + x2i);
+        System.out.println("x3i >>= 2 = " + x3i);
+        System.out.println("x4i >>>= 2 = " + x4i);
 
         //bitový posun vs. násobení - měření času
         int i16;
@@ -272,6 +283,25 @@ public class Druhy {
         System.out.println("i16: " + i16);
         System.out.println("Elapsed Time in milli seconds <<6 <<4: "+ (end2_2 - start2_2));
 
+        //bitový posun neznaménkově
+        int x5 = -160;
+        x5 >>= 0;
+        System.out.println("x5: " + x5);
+
+        System.out.println("getBit(16, 0): " + getBit(16, 0));
+        System.out.println("getBit(16, 1): " + getBit(16, 1));
+        System.out.println("getBit(16, 2): " + getBit(16, 2));
+        System.out.println("getBit(16, 3): " + getBit(16, 3));
+        System.out.println("getBit(16, 4): " + getBit(16, 4));
+        System.out.println("getBit(16, 5): " + getBit(16, 5));
+        System.out.println("getBit(16, 32): " + getBit(16, 32));
+
+    }
+    static int getBit (int x, int i) {
+        if (i >= 32)
+            return (-1);
+        else
+            return ((x >>> i) & 1);
     }
 }
 
