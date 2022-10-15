@@ -25,17 +25,21 @@ public class Kap_4 {
         char c2 = '\n'; //10
         int i2 = 5;
         System.out.println(i2 + c2);
+        System.out.println(i2 + "" + c2); //Řešení
         System.out.println(i2 + '\n');
-        System.out.println("i2 " + i2 + '\n');
+        System.out.println(i2 + "" + '\n'); //Řešení
+        System.out.println("i2 " + i2 + '\n'); //funguje správně
         System.out.println(i2 + '\n' + " i2");
+        System.out.println(i2 + "" + '\n' + " i2"); //Řešení
 
         char c3 = 'A';
         System.out.println("Znak " + c3 + " má ASCII hodnotu: " + (int) c3);
         System.out.println("Znak " + c2 + " má ASCII hodnotu: " + (int) c2);
         System.out.println("Znak " + i2 + " má ASCII hodnotu: " + (int) i2);
 
-        //viz public class Kap_4_VstupInt
+        //viz public class Kap_4_Vstup{Int|Double|Znaku}
 
-
+        int x4 = 3;
+        System.out.println("x4 + 1 = " + (x4 + 1));
     }
 }

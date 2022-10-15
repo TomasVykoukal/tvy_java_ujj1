@@ -4,6 +4,7 @@ public class Kap_3_cviceni {
 
     public static void main(String[] args) {
         //cvičení 1+2 viz Druha
+
         //cvičení 3
         double delenec = 0.5;
         double delitel = 0.0;

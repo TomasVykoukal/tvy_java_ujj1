@@ -1,18 +1,17 @@
 package org.example;
 import java.io.*;
 
-public class Kap_4_VstupInt {
-    public static int ctiInt(){
+public class Kap_4_VstupFloat {
+    public static float ctiFloat(){
         byte[] pole = new byte[20];
-        //byte pole[] = new byte[20]; //jde také
         String nacteno;
-        int i;
+        float f;
 
         try {
             System.in.read(pole);
             nacteno = new String(pole).trim();
-            i = Integer.valueOf(nacteno).intValue();
-            return i;
+            f = Float.valueOf(nacteno).floatValue();
+            return f;
         }
         catch (NumberFormatException e) {
             System.out.print("Číslo " + e.getMessage());
@@ -25,8 +24,8 @@ public class Kap_4_VstupInt {
         }
     }
     public static void main(String[] args){
-        System.out.print("Zadej celé číslo: ");
-        int i = ctiInt();
-        System.out.println("i = " + i);
+        System.out.print("Zadej reálné číslo: ");
+        float f = ctiFloat();
+        System.out.println("f = " + f);
     }
 }
