@@ -118,12 +118,150 @@ public class Kap_5 {
             System.out.println("i4i: " + i4i + " / sum2: " + sum2);
         }
         //2.4
-        for (int i4j = 1, sum3 = 0; i4j <= 10;
+        int i4j, sum3;
+        for (i4j = 1, sum3 = 0; i4j <= 10;
              sum3 += i4j, System.out.println("i4j: " + i4j + " / sum3: " + sum3), i4j++) ;
         //2.5
-        
+        for (int i4k = 1, sum4 = 0; i4k <= 10; i4k++) {
+            sum4 += i4k;
+            System.out.println("i4k: " + i4k + " / sum4: " + sum4);
+        }
+        //System.out.println("i4k: " + i4k + " / sum4: " + sum4); //java: cannot find symbol
+                                                                //  symbol:   variable i4k
+                                                                //  location: class org.example.Kap_5
+        //Zpracování příkazu FOR:
+        //1. iterace:    výraz_start -> test výraz_stop (true) -> příkaz -> výraz_iter
+        //další iterace:                test výraz_stop (true) -> příkaz -> výraz_iter
 
-        //1.:    výraz_start -> test výraz_stop (true) -> příkaz -> výraz_iter
-        //další:                test výraz_stop (true) -> příkaz -> výraz_iter
+        long pred, mezi, po;
+        long pred_nano, mezi_nano, po_nano;
+        pred = System.currentTimeMillis();
+        pred_nano = System.nanoTime();
+        int i5, soucin5;
+        for (i5 = 1, soucin5 = 1; i5 <= 900; i5++)
+            if (i5 % 2 == 1) {
+                soucin5 *= i5;
+                System.out.println("i5 = " + i5 + " / soucin5 = " + soucin5);
+            }
+        mezi = System.currentTimeMillis();
+        mezi_nano = System.nanoTime();
+        int i6, soucin6;
+        for (i6 = 1, soucin6 = 1; i6 <= 900; i6 += 2) {
+            soucin6 *= i6;
+            System.out.println("i6 = " + i6 + " / soucin6 = " + soucin6);
+        }
+        po = System.currentTimeMillis();
+        po_nano = System.nanoTime();
+        System.out.println("mezi - pred: " + (mezi - pred));
+        System.out.println("po - pred: " + (po - mezi));
+        System.out.println("mezi - pred (nano): " + (mezi_nano - pred_nano));
+        System.out.println("po - pred (nano): " + (po_nano - mezi_nano));
+
+        //BREAK s návěštím dokáže ukončit i blok (nejen cyklus)
+        System.out.print("Začátek ");
+        odskok:
+        {
+            for (int i7 = 1; i7 < 10; i7++) {
+                if (i7 == 5)
+                    break odskok; //=> Za?�tek 1 2 3 4 Konec
+                    //break;      //=> Za?�tek 1 2 3 4 St?ed Konec
+                System.out.print(i7 + " ");
+            }
+            System.out.print("Střed ");
+        }
+        System.out.println("Konec");
+
+        navesti:
+        for (int n8 = 0; n8 < 4; n8++) {
+            for (int m8 = 0; m8 < 2; m8++) {
+                if (n8 == 2 && m8 == 1)
+                    continue navesti; //0-0 0-1 1-0 1-1 2-0 3-0 3-1
+                    //break navesti;  //0-0 0-1 1-0 1-1 2-0
+                    //continue;         //0-0 0-1 1-0 1-1 2-0 3-0 3-1
+                System.out.print(n8 + "-" + m8 + " ");
+            }
+        }
+        System.out.println();
+
+        /*chyba:
+        {
+            for (int i9 = 0; i9 < 10; i9++) {
+                for (int j9 = 0; j9 < 10; j9++) {
+                    for (int k9 = 0; k9 < 10; k9++) {
+                        if (x[k9] == 0)
+                            break chyba;
+                        a[i9] = a[i9] + b[j9] / x[k9];
+                    }
+                }
+            }
+        }*/
+
+        //Příkaz SWITCH
+        /*switch (Kap_4_VstupZnaku.ctiZnak()) {
+            case 'a':
+            case 'b':
+            case 'c':
+                System.out.print("1");
+                //break;
+            case 'd':
+                System.out.print("2");
+                //break;
+            default:
+                System.out.print("3");
+                //break;
+        }*/
+
+        //Příkaz SWITCH - umístění DEFAULT kdekoliv
+        /*switch (Kap_4_VstupZnaku.ctiZnak()) {
+            default:
+                System.out.println("Nestiskl jsi ani '1' ani '2'.");
+                break;
+            case '0':
+            case '1':
+                System.out.println("Stiskl jsi '1'.");
+                break;
+            case '2':
+                System.out.println("Stiskl jsi '2'.");
+                break;
+        }*/
+
+        //odstrašující přklad
+        char c10 = 'a';
+        /*while (c10 != '*') {
+            switch (c10 = Kap_4_VstupZnaku.ctiZnak()) {
+                case ' ':
+                case '\t':
+                    System.out.print('#');
+                    continue; //=> odskok na konec smyčky WHILE; žádná relevance pro SWITCH
+                case '*':
+                    break;
+                default:
+                    System.out.print(c10);
+                    break;
+            }
+        }*/
+        //lepší řešení
+        /*while ((c10 = Kap_4_VstupZnaku.ctiZnak()) != '*') {
+            switch (c10) {
+                case ' ':
+                case '\t':
+                    System.out.print('#');
+                    break;
+                default:
+                    System.out.print(c10);
+                    break;
+            }
+        }*/
+        //kratší ale méně přehledné
+        while ((c10 = Kap_4_VstupZnaku.ctiZnak()) != '*') {
+            switch (c10) {
+                case ' ':
+                case '\t':
+                    c10 = '#';
+                default:
+                    System.out.print(c10);
+                    break;
+            }
+        }
     }
 }
