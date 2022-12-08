@@ -57,9 +57,11 @@ public class Kap_6 {
     }
 
     //konverze
+    //explicitní zúžující typová k.
     static int konv1(double d) {
         return (int) d;
     }
+    //implicitní rozšiřující typová k.
     static double konv2(int d) {
         return d;
     }

@@ -140,12 +140,11 @@ public class Kap_5_cviceni {
             i++;
         }*/
         //vlastní řešení:
-        Double e = 0., predchE = 1.;
+        Double e = 0., inkrE = 1.; //iniciační hodnota inkr.: 1/0! tj. 1
         int i = 0;
-        while (predchE > 1e-15) { //exponent oproti zadání -7 změněn na -15 pro větší přesnost
-            i++;
-            e = e + predchE;
-            predchE = predchE/i;
+        while (inkrE > 1e-15) { //exponent oproti zadání -7 změněn na -15 pro větší přesnost
+            e = e + inkrE;
+            inkrE = inkrE/++i; //první iterace: inkr. = 1/1! tj. 1 (kum. 2), další iterace: 1/i! (algoritmicky: předch. inkr. * 1/i)
         }
         System.out.println("Vypočtené e: " + e);
         System.out.println("Knihovní  e: " + Math.E);
