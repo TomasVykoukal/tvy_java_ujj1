@@ -86,7 +86,9 @@ public class Kap_6 {
     }
 
     //viditelnost nelokálních proměnných
-    static int i_nelok;
+    //proměnná třídy/instance => nelokální "globální" proměnná; inicializace nepovinná/volitelná
+    static int i_nelok; //... neinicializovaná
+    static int i_nelok_init = 5; //... volitelně inicializovaná
 
 
     public static void main(String[] args){
@@ -149,17 +151,50 @@ public class Kap_6 {
         tiskPenez(25, 50);
 
         //viditelnost lokálních a nelokálních proměnných
-        int i4 = 6;
-        System.out.println(i4);
-        {
-            //int i4 = 7; //java: variable i4 is already defined in method main(java.lang.String[])
-            //long i4 = 7; //dito
-            int j4 = 8;
-            System.out.println(j4);
+        System.out.println("VIDITELNOST PROMĚNNÝCH - PŘEHLED:");
+        System.out.println("---------------------------------");
+
+        System.out.println("nelokální proměnná neinicializovaná: " + i_nelok);
+        System.out.println("nelokální proměnná inicializovaná: " + i_nelok_init);
+
+        //redeklarace (překrytí) nelokálních proměnných => lokální proměnná (v metodě); inicializace povinná
+        int i_nelok;
+        int i_nelok_init = 55;
+        //System.out.println("lokální (překrytá nelok.) proměnná neinicializovaná: " + i_nelok); //java: variable i_nelok might not have been initialized
+        System.out.println("lokální (překrytá nelok.) proměnná neinicializovaná: java: variable i_nelok might not have been initialized");
+        System.out.println("lokální (překrytá nelok.) proměnná inicializovaná: " + i_nelok_init);
+        System.out.println("nelokální proměnná inicializovaná (plně kvalif. jméno): " + Kap_6.i_nelok_init);
+
+        //lokální proměnná (v metodě); inicializace povinná
+        int i_lok_met;
+        int i_lok_met_init = 6;
+        //System.out.println("lokální proměnná (v metodě) neinicializovaná: " + i_lok_met); //java: variable i_lok_met might not have been initialized
+        System.out.println("lokální proměnná (v metodě) neinicializovaná: java: variable i_lok_met might not have been initialized");
+        System.out.println("lokální proměnná (v metodě) inicializovaná: " + i_lok_met_init);
+
+        { //programový blok
+            //redeklarace (překrytí) lokálních proměnných
+            //int i_lok_met = 7; //java: variable lok_met is already defined in method main(java.lang.String[])
+            //long i_lok_met = 7; //dito
+            //int i_lok_met_init = 7; //java: variable lok_met_init is already defined in method main(java.lang.String[])
+            //long i_lok_met_init = 7; //dito
+
+            //lokální proměnná (v bloku {}); inicializace povinná
+            int i_lok_blok;
+            int i_lok_blok_init = 8;
+            //System.out.println("lokální proměnná (v bloku) neinicializovaná" + i_lok_blok); //java: variable i_lok_blok might not have been initialized
+            System.out.println("lokální proměnná (v bloku) neinicializovaná: java: variable i_lok_blok might not have been initialized");
+            System.out.println("lokální proměnná (v bloku) inicializovaná: " + i_lok_blok_init);
         }
         //System.out.println(j4); //java: cannot find symbol, symbol:   variable j4, location: class org.example.Kap_6
-        int i_lok = 0; //java: variable i_lok might not have been initialized
-        System.out.println("nelokální neinicializovaná proměnná: " + i_nelok);
-        System.out.println("lokální neinicializovaná proměnná: " + i_lok);
+        //System.out.println("lokální proměnná (v bloku) inicializovaná vyvolaná mimo blok: " + i_lok_blok_init); //java: cannot find symbol; symbol: variable i_lok_blok_init; location: class org.example.Kap_6
+        System.out.println("lokální proměnná (v bloku) inicializovaná vyvolaná mimo blok: java: cannot find symbol; symbol: variable i_lok_blok_init; location: class org.example.Kap_6");
+
+        //lokální proměnná (v bloku FOR); inicializace povinná
+        for (int i_lok_for_init = 1; i_lok_for_init <= 1; i_lok_for_init++) {
+            System.out.println("lokální proměnná (v bloku FOR) inicializovaná: " + i_lok_for_init);
+        }
+        //System.out.println("lokální proměnná (v bloku FOR) inicializovaná vyvolaná mimo blok: " + i_lok_for_init); //java: cannot find symbol; symbol: variable i_lok_for_init; location: class org.example.Kap_6
+        System.out.println("lokální proměnná (v bloku FOR) inicializovaná vyvolaná mimo blok: java: cannot find symbol; symbol: variable i_lok_for_init; location: class org.example.Kap_6");
     }
 }

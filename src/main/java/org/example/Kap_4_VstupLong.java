@@ -1,17 +1,16 @@
 package org.example;
 import java.io.*;
 
-public class Kap_4_VstupInt {
-    public static int ctiInt() {
+public class Kap_4_VstupLong {
+    public static long ctiLong() {
         byte[] pole = new byte[20];
-        //byte pole[] = new byte[20]; //jde také
         String nacteno;
-        int i;
+        long i;
 
         try {
             System.in.read(pole);
             nacteno = new String(pole).trim();
-            i = Integer.valueOf(nacteno).intValue();
+            i = Long.valueOf(nacteno).longValue();
             return i;
         }
         catch (NumberFormatException e) {
@@ -25,8 +24,9 @@ public class Kap_4_VstupInt {
         }
     }
     public static void main(String[] args) {
-        System.out.print("Zadej celé číslo INT: ");
-        int i = ctiInt();
+        System.out.print("Zadej celé číslo LONG: ");
+        long i = ctiLong();
         System.out.println("i = " + i);
     }
 }
+

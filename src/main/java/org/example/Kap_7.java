@@ -34,8 +34,55 @@ public class Kap_7 {
         }
 
         //2-rozměrné pole s proměnnou délkou řádek
-        int[][] a3 = new int[4][]
+        int[][] a4 = new int[5][];
+        System.out.println("Počet řádek pole: " + a4.length);
+        //System.out.println("Počet sloupců pole: " + a4[0].length); //Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "a4[0]" is null at org.example.Kap_7.main(Kap_7.java:39)
+        for (int i4 = 0; i4 < a4.length; i4++) {
+            a4[i4] = new int[i4 + 1];
+            System.out.println("Počet sloupců (nerovnoměrného) pole: " + a4[i4].length);
+            for (int j4 = 0; j4 < a4[i4].length; j4++) {
+                a4[i4][j4] = i4 * 10 + j4;
+                System.out.print(a4[i4][j4] + "  ");
+            }
+            System.out.println();
+        }
 
+        //statický inicializátor
+        int[][] b4 = {{ 1,  2,  3},
+                      {11, 12, 13},
+                      {21, 22, 23}};
+        System.out.println("Počet řádek pole: " + b4.length);
+        System.out.println("Počet sloupců (rovnoměrného) pole: " + b4[0].length);
 
+        int[][] c4 = {{ 1,  2,  3},
+                      {11, 12},
+                      {21}};
+        System.out.println("Počet řádek pole: " + c4.length);
+        System.out.print("Počet sloupců (nerovnoměrného) pole: ");
+        for (int i4b = 0; i4b < c4.length; i4b++) {
+            System.out.print(c4[i4b].length + "  ");
+        }
+        System.out.println();
+
+        //3- a vícerozměrná pole
+        int[][][] d4 = new int[5][5][5];
+
+        int[][][] e4 = new int[5][5][];
+        e4[0][0] = new int[5];
+
+        //int[][][] f4 = new int[5][][5]; //java: ']' expected
+
+        //více rozměrů v 1-rozměrném poli
+        final int RADKY = 24;
+        final int SLOUPCE = 80;
+        byte[] obrazovka = new byte[RADKY * SLOUPCE];
+        for (int i5 = 0; i5 < RADKY; i5++) {
+            for (int j5 = 0; j5 < SLOUPCE; j5++) {
+                obrazovka[i5 * SLOUPCE + j5] = 0;
+                System.out.print((i5 * SLOUPCE + j5) + " ");
+                //System.out.print(obrazovka[i5 * RADKY + j5] + " ");
+            }
+            System.out.println();
+        }
     }
 }
