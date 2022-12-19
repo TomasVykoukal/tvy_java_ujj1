@@ -24,9 +24,7 @@ public class Kap_7_cviceni {
         }
     }
 
-    //cvičení 2, 3 -> viz main()
-
-
+    //cvičení 2, 3, 4 -> viz main()
 
     public static void main(String[] args) {
         //cvičení 1
@@ -62,6 +60,28 @@ public class Kap_7_cviceni {
         System.out.println("binární zápis knihovní:  " + Integer.toBinaryString(cislo_vstup));
 
         //cvičení 4
+        System.out.print("Zadejte celé číslo LONG: ");
+        long cislo_bin4 = Kap_4_VstupLong.ctiLong();
+        String str4 = Long.toString(cislo_bin4);
+        int mocnitel4;
+        int cislo_dec_m4 = 0; //mezivýpočet
+        int cislo_dec4 = 0;
+        System.out.println("Bylo zadáno číslo " + cislo_bin4 + " o délce " + str4.length() + ".");
+        System.out.print("Průběh výpočtu: ");
+        for (int i = 0; i < str4.length(); i++) {
+            mocnitel4 = str4.length() - 1 - i;
+            cislo_dec_m4 = ((int) Math.pow((double) 2, (double) mocnitel4)) * (str4.charAt(i) == '0' ? 0 : 1);
+            cislo_dec4 = cislo_dec4 + cislo_dec_m4;
+            //průběh výpočtu
+            System.out.print(i + "/" + mocnitel4 + "/" + cislo_dec_m4 + "/" + cislo_dec4 + "  ");
 
+            //test způsobů převodu CHAR na INT
+            /*System.out.print(str4.charAt(i) + "/"); //-> textový znak
+            System.out.print(Integer.valueOf(str4.charAt(i)).intValue() + "/"); //-> ASCII hodnota znaku
+            System.out.print(Character.getNumericValue(str4.charAt(i)) + "/"); //-> číselná hodnota znaku
+            System.out.print(Integer.parseInt(String.valueOf(str4.charAt(i))) + "  "); //-> dito*/
+        }
+        System.out.println();
+        System.out.println("dekadický zápis vypočtený: " + cislo_dec4);
     }
 }
