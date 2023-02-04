@@ -11,12 +11,18 @@ public class Kap_8_Obdelnik {
         //volání metod jinými metodami téže třídy nebo konstruktorem
         this.nastavSirku(sirka);
         this.vyska = vyska;
+        //return vyska;
     }
     //VOID v konstr.:
     /*java: constructor Kap_8_Obdelnik in class org.example.Kap_8_Obdelnik cannot be applied to given types;
       required: no arguments
       found:    int,int
       reason: actual and formal argument lists differ in length*/
+
+    //RETURN %param% v konstr.:
+    /*java: incompatible types: unexpected return value*/
+    //RETURN (bez param) v konstr.:
+    /*OK, RETURN možno použít pro předčasné ukončení běhu konstr.*/
 
     public Kap_8_Obdelnik(Kap_8_Obdelnik o) {
         /*this.sirka = o.sirka;
@@ -34,6 +40,7 @@ public class Kap_8_Obdelnik {
     public void nastavSirku (int sirka) {
         this.sirka = sirka;
     }
+
     public int obvod() {
         int pom;
         pom = 2 * (this.sirka + this.vyska);
@@ -42,6 +49,15 @@ public class Kap_8_Obdelnik {
 
     public int obsah() {
         return this.sirka * this.vyska;
+    }
+
+    //použití statických metod v objektech
+    //- použití statická metody ze třídy Java Core API
+    public double delkaUhlopricky() {
+        double pom;
+        pom = Math.pow(sirka, 2) + Math.pow(vyska, 2);
+        pom = Math.sqrt(pom);
+        return pom;
     }
 
     public static void main(String[] args) {
@@ -58,8 +74,8 @@ public class Kap_8_Obdelnik {
         System.out.println("obd.getClass: " + obd.getClass());
 
         //přímý přístup k datům obj.
-        obd.vyska = 5;
         obd.sirka = 6;
+        obd.vyska = 5;
         System.out.println("šířka: " + obd.sirka + ", výška: " + obd.vyska);
 
         //práce s metodami
@@ -70,9 +86,18 @@ public class Kap_8_Obdelnik {
         Kap_8_Obdelnik obdel = new Kap_8_Obdelnik(5, 3);
         Kap_8_Obdelnik jiny  = new Kap_8_Obdelnik(obdel);
         Kap_8_Obdelnik jedn  = new Kap_8_Obdelnik();
-        System.out.println("Obdod je: " + obdel.obvod());
-        System.out.println("Obdod je: " + jiny.obvod());
-        System.out.println("Obdod je: " + jedn.obvod());
+        System.out.println("šířka: " + obdel.sirka + ", výška: " + obdel.vyska);
 
+        System.out.println("Obvod je: " + obdel.obvod());
+        System.out.println("Obvod je: " + jiny.obvod());
+        System.out.println("Obvod je: " + jedn.obvod());
+
+        System.out.println("Obsah je: " + obdel.obsah());
+        System.out.println("Obsah je: " + jiny.obsah());
+        System.out.println("Obsah je: " + jedn.obsah());
+
+        System.out.println("Uhlopříčka je: " + obdel.delkaUhlopricky());
+        System.out.println("Uhlopříčka je: " + jiny.delkaUhlopricky());
+        System.out.println("Uhlopříčka je: " + jedn.delkaUhlopricky());
     }
 }
