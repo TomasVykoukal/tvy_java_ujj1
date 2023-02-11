@@ -1,11 +1,13 @@
 package org.example;
 
+import org.jetbrains.annotations.NotNull;
+
 //deklarace třídy
 public class Kap_8_Obdelnik {
     public int sirka;
     public int vyska;
 
-    //(explicitní) konstruktor
+    //(explicitní) konstruktory
     public /*void*/ Kap_8_Obdelnik (int sirka, int vyska) {
         //this.sirka = sirka;
         //volání metod jinými metodami téže třídy nebo konstruktorem
@@ -24,7 +26,7 @@ public class Kap_8_Obdelnik {
     //RETURN (bez param) v konstr.:
     /*OK, RETURN možno použít pro předčasné ukončení běhu konstr.*/
 
-    public Kap_8_Obdelnik(Kap_8_Obdelnik o) {
+    public Kap_8_Obdelnik(@NotNull Kap_8_Obdelnik o) { //pozn.: automaticky nabídnutá anotace
         /*this.sirka = o.sirka;
         this.vyska = o.vyska;*/
         //využití THIS() pro přístup ke konstruktoru
@@ -65,7 +67,9 @@ public class Kap_8_Obdelnik {
         //Kap_8_Obdelnik obd = new Kap_8_Obdelnik(); //varianta bez konstruktoru (impl. konstruktor) či s konstruktorem bez param.
         Kap_8_Obdelnik obd = new Kap_8_Obdelnik(4, 5);
 
-        //v obj. impl. inicializace na 0 - platí pro variantu bez inicializace v obj. a bez inicializačního konstruktoru
+        //v obj. implicitní inicializace proměnných na 0 - platí pro:
+        //- proměnné deklarované bez inicializace
+        //- objekt bez inicializace proměnných v konstruktoru
         System.out.println("šířka: " + obd.sirka + ", výška: " + obd.vyska);
 
         //různé pokusy
@@ -81,12 +85,17 @@ public class Kap_8_Obdelnik {
         //práce s metodami
         int obv = obd.obvod();
         System.out.println("Obvod obdélníka: " + obv);
+        int obs = obd.obsah();
+        System.out.println("Obsah obdélníka: " + obs);
 
         //práces s přetíženými konstruktory
         Kap_8_Obdelnik obdel = new Kap_8_Obdelnik(5, 3);
         Kap_8_Obdelnik jiny  = new Kap_8_Obdelnik(obdel);
         Kap_8_Obdelnik jedn  = new Kap_8_Obdelnik();
+
         System.out.println("šířka: " + obdel.sirka + ", výška: " + obdel.vyska);
+        System.out.println("šířka: " + jiny.sirka + ", výška: " + jiny.vyska);
+        System.out.println("šířka: " + jedn.sirka + ", výška: " + jedn.vyska);
 
         System.out.println("Obvod je: " + obdel.obvod());
         System.out.println("Obvod je: " + jiny.obvod());
