@@ -62,6 +62,26 @@ public class Kap_8_Obdelnik {
         return pom;
     }
 
+    //Kap. 8.13 - Rušení objektů: rušení obj. vynulováním ref. proměnné při práci s velkými objemy paměti
+    public static void slozityVypocet() {
+        double[] pomPole1 = new double[1_000_000_000];
+        double[] pomPole2 = new double[60_000_000];
+        for (int i = 0; i < 1_000_000_000; i++) {
+            pomPole1[i] = 123456.789;
+        }
+        for (int i = 0; i < 60_000_000; i++) {
+            pomPole2[i] = 987654.321;
+        }
+        /*pomPole2 zu groß (>cca 60 mil.; pomPole1 = 1 mlrd.):
+        Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+            at org.example.Kap_8_Obdelnik.slozityVypocet(Kap_8_Obdelnik.java:68)
+            at org.example.Kap_8_Obdelnik.main(Kap_8_Obdelnik.java:136)*/
+
+        //pomPole1 = null;
+        //pomPole2 = null;
+        //System.gc();
+    }
+
     public static void main(String[] args) {
         //vytvoření objektu
         //Kap_8_Obdelnik obd = new Kap_8_Obdelnik(); //varianta bez konstruktoru (impl. konstruktor) či s konstruktorem bez param.
@@ -108,5 +128,21 @@ public class Kap_8_Obdelnik {
         System.out.println("Uhlopříčka je: " + obdel.delkaUhlopricky());
         System.out.println("Uhlopříčka je: " + jiny.delkaUhlopricky());
         System.out.println("Uhlopříčka je: " + jedn.delkaUhlopricky());
+
+        //rušení objektů - 2 varianty
+        Kap_8_Obdelnik obd1 = new Kap_8_Obdelnik(4, 5);
+        obd1 = new Kap_8_Obdelnik(5, 3); //do ref. proměnné se přiřadí odkaz na jiný obj.
+        Kap_8_Obdelnik obd2 = new Kap_8_Obdelnik(4, 5);
+        obd2 = null; //ref. proměnná se vynuluje
+
+        //Kap. 8.13 - Rušení objektů: pokr.
+        //System.gc();
+        slozityVypocet(); //-->viz Task Manager využití paměti
+        try {
+            Thread.currentThread().sleep(5000);
+        }
+        catch (java.lang.InterruptedException e) {}
+        //System.gc();
+
     }
 }

@@ -23,8 +23,15 @@ public class Kap_8_Zakaznik {
     public void platil(int cena) {
         this.utratil += cena;
         //vztah mezi metodami třídy a met. instance - zde met. třídy v met. inst. => OK
-        Kap_8_Zakaznik.pocetZakazniku++;
+        //Kap_8_Zakaznik.pocetZakazniku++;
         int i = Kap_8_Zakaznik.kolikZakazniku();
+    }
+
+    //činnost finalizéru (kap. 8.14)
+    protected void finalize() throws Throwable {
+        pocetZakazniku--;
+        System.out.println("Konec zákazníka");
+        super.finalize(); //poslední příkaz met. finalize() (analogicky volání konstruktoru z jiného konstr. pomocí this() jako první příkaz ve volajícím k.)
     }
 
     public static void main(String[] args) {
@@ -53,5 +60,10 @@ public class Kap_8_Zakaznik {
         //System.out.println("Počet zákazníků (přístup ke stat. prom. pomocí impl. ukaz.): " + this.pocetZakazniku);
         //System.out.println("Počet zákazníků (přístup ke stat. met. pomocí impl. ukaz.):  " + this.kolikZakazniku());
         //java: non-static variable this cannot be referenced from a static context
+
+        //Rušení objektů a ukončení práce s nimi
+        zak1 = null;
+        System.runFinalization(); //nedělá nic - deprecated
+        System.out.println("Počet zákazníků (5): " + Kap_8_Zakaznik.pocetZakazniku);
     }
 }
