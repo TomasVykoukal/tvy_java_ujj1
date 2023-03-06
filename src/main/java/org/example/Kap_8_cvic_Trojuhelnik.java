@@ -39,7 +39,7 @@ public class Kap_8_cvic_Trojuhelnik {
         }
         //cvičení 2
         if (this.odvesna1 + this.odvesna2 <= this.prepona) {
-            System.out.println("Útvar není trojúhelník. Strany budou vynulovány.");
+            System.out.println("Útvar " + this.vypisRozmeru() + " není trojúhelník. Strany budou vynulovány.");
             this.stranaA = 0;
             this.stranaB = 0;
             this.stranaC = 0;
@@ -60,11 +60,11 @@ public class Kap_8_cvic_Trojuhelnik {
         this.stranaC = druhaStrana;
     }
 
-    double obvod() {
+    public double obvod() {
         return stranaA + stranaB + stranaC;
     }
 
-    boolean jePravouhly() {
+    public boolean jePravouhly() {
         if (Math.pow(this.prepona, 2) == (Math.pow(this.odvesna1, 2) + Math.pow(this.odvesna2, 2))) {
             return true;
         } else {
@@ -72,9 +72,19 @@ public class Kap_8_cvic_Trojuhelnik {
         }
     }
 
+    private String vypisRozmeru() {
+        return "/: " + this.stranaA + ", _: " + this.stranaB + ", \\: " + this.stranaC;
+    }
+
+    public void vypis3uhelnika() {
+        //System.out.println("Byl zadan 3úhelník /: " + this.stranaA + ", _: " + this.stranaB + ", \\: " + this.stranaC);
+        System.out.println("Byl zadan 3úhelník " + this.vypisRozmeru());
+    }
+
     public static void main(String[] args) {
         //3úhelník
         Kap_8_cvic_Trojuhelnik trojuh1 = new Kap_8_cvic_Trojuhelnik(7, 8, 9);
+        trojuh1.vypis3uhelnika();
         System.out.println("obvod 3úhelníka: " + trojuh1.obvod());
         if (trojuh1.jePravouhly()) {
             System.out.println("Trojúhelník je pravoúhlý.");
@@ -85,9 +95,11 @@ public class Kap_8_cvic_Trojuhelnik {
 
         //ne-3úhelník
         Kap_8_cvic_Trojuhelnik trojuh2 = new Kap_8_cvic_Trojuhelnik(7, 8, 19);
+        trojuh2.vypis3uhelnika();
 
-        //celočíselný pravoúh. 3úhelník: 3; 4; 5. 5; 12; 13. 8; 15; 17. 7; 24; 25.
-        Kap_8_cvic_Trojuhelnik trojuh3 = new Kap_8_cvic_Trojuhelnik(3, 4, 5);
+        //celočíselný pravoúh. 3úhelník: 3; 4; 5. 5; 12; 13. 8; 15; 17. 7; 24; 25. ...
+        Kap_8_cvic_Trojuhelnik trojuh3 = new Kap_8_cvic_Trojuhelnik(5, 12, 13);
+        trojuh3.vypis3uhelnika();
         System.out.println("obvod 3úhelníka: " + trojuh3.obvod());
         if (trojuh3.jePravouhly()) {
             System.out.println("Trojúhelník je pravoúhlý.");
