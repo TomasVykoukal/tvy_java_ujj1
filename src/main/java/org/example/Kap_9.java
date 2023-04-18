@@ -14,9 +14,11 @@ public class Kap_9 {
         StringBuffer buf = new StringBuffer("Dobrý den!");
 
         System.out.println("(" + bajty.length + "): " + bajty[0] + " " + bajty[1] + " " + bajty[2]); //-->69 118 97 (přímý výstup => číselná interpretace)
+        System.out.println("(" + bajty.length + "): " + (char)bajty[0] + " " + (char)bajty[1] + " " + (char)bajty[2]); //-->E v a (přetypování => textová interpretace)
         System.out.println("(" + znaky.length + "): " + znaky[0] + " " + znaky[1] + " " + znaky[2] + " " + znaky[3] + " " + znaky[4] + " " + znaky[5] + " " + znaky[6]);
         System.out.println("(" + buf.length() + "): " + buf);
         //Pozn. k "length" viz níže.
+        System.out.println();
 
         //přetížené konstruktory třídy String
         String s1_1 = new String("Ciao!");
@@ -35,13 +37,14 @@ public class Kap_9 {
         System.out.println("s1_6(" + s1_6.length() + "): " + s1_6);
         System.out.println("s1_7(" + s1_7.length() + "): " + s1_7);
         //Pozn. k "length": pole --> proměnná => length; řetězec + StringBuffer --> metoda => length()
+        System.out.println();
 
         //inicializované pole řetězců
         String[] pole = {"Dana", "Eva", "Martina"};
         for (int i = 0; i < pole.length; i++) {
             System.out.print(pole[i] + " ");
         }
-        System.out.println();
+        System.out.println('\n'); //--> 2x nový řádek
 
         //práce s celými řetězci - porovnávání
         //porovnání řetězců pomocí funkce => srovnává obsah řetězců (nikoliv ref. proměnné)
@@ -82,6 +85,7 @@ public class Kap_9 {
         } else {
             System.out.println("neplatí s2_1a == s2_1a");
         }
+        System.out.println();
 
         //práce s celými řetězci - převody na malá či velká písmena
         String s3 = "malá a VELKÁ";
@@ -107,6 +111,7 @@ public class Kap_9 {
         String istr;
         for (int i = 0; i < s5_1.length(); i++) {
             istr = String.valueOf(i);
+            //System.out.print(istr);
             System.out.print(istr.substring(istr.length()-1)); //tisk 1-ciferného pozičního čísla
         }
         System.out.println();
@@ -116,15 +121,16 @@ public class Kap_9 {
         System.out.println();
 
         s5_2 = s5_1.substring(5);
-        s5_3 = s5_1.substring(5, 9);
+        s5_3 = s5_1.substring(5, 9); //důležité: koncový index ukazuje na PRVNÍ NEPOUŽITÝ znak ("endIndex: the ending index, exclusive")
         System.out.println(s5_2);
         System.out.println(s5_3);
         System.out.println();
 
         //umístění podřetězce do pole znaků
         char znaky2[] = new char[10];
-        s5_1.getChars(2, 9, znaky2, 0);
+        s5_1.getChars(2, 9, znaky2, 0); //důležité: viz SUBSTRING ("srcEnd: index after the last character in the string to copy")
         System.out.println(znaky2);
+        System.out.println();
 
         //práce se začátkem a koncem řetězce
         if (s5_1.startsWith("malá") == true) {
@@ -133,6 +139,7 @@ public class Kap_9 {
         if (s5_1.endsWith("malá") == false) {
             System.out.println(s5_1 + " nekončí na \"malá\"");
         }
+        System.out.println();
 
         //oříznutí bílých znaků na okrajích
         String s6_2, s6_1 = "\r\n\t ahoj\t \r\n";
@@ -154,7 +161,6 @@ public class Kap_9 {
         System.out.println(s7 + ": Poslední \'a\' je na " + i7 + ". pozici");
         i7 = s7.lastIndexOf('a', i7 - 1);
         System.out.println(s7 + ": Předposlední \'a\' je na " + i7 + ". pozici");
-
         i7 = s7.lastIndexOf("VEL");
         System.out.println(s7 + ": Poslední \"VEL\" je na " + i7 + ". pozici");
         System.out.println();
@@ -220,20 +226,22 @@ public class Kap_9 {
         String s_f9 = "3.14";
         String s_d9 = "3.14";
 
-        boolean b9 = Boolean.valueOf(s_b9).booleanValue();
-        byte bt9 = Byte.valueOf(s_bt9, 10).byteValue();
-        short sh9 = Short.valueOf(s_sh9, 10).shortValue();
-        //int i9 = Integer.valueOf(s_i9, 10).intValue();
-        //int i9 = Integer.valueOf(s_i9, 10); //?
-        int i9 = Integer.parseInt(s_i9, 10); //existují i metody třídy parseXXX
-        long l9 = Long.valueOf(s_l9, 10).longValue();
-        float f9 = Float.valueOf(s_f9).floatValue();
-        double d9 = Double.valueOf(s_d9).doubleValue();
+        boolean b9  = Boolean.valueOf(s_b9).booleanValue();
+        byte    bt9 = Byte.valueOf(s_bt9, 10).byteValue();
+        short   sh9 = Short.valueOf(s_sh9, 10).shortValue();
+        int     i9  = Integer.valueOf(s_i9, 10).intValue();
+        int     i9a = Integer.valueOf(s_i9, 10); //?
+        int     i9b = Integer.parseInt(s_i9, 10); //existují i metody třídy parseXXX
+        long    l9  = Long.valueOf(s_l9, 10).longValue();
+        float   f9  = Float.valueOf(s_f9).floatValue();
+        double  d9  = Double.valueOf(s_d9).doubleValue();
 
         System.out.println("b9: " + s_b9 + " / booleanValue: " + b9);
         System.out.println("bt9: " + s_bt9 + " / byteValue: " + bt9);
         System.out.println("sh9: " + s_sh9 + " / shortValue: " + sh9);
         System.out.println("i9: " + s_i9 + " / intValue: " + i9);
+        System.out.println("i9a: " + s_i9 + " / intValue: " + i9a);
+        System.out.println("i9b: " + s_i9 + " / intValue: " + i9b + " (metoda třídy parseXXX)");
         System.out.println("l9: " + s_l9 + " / longValue: " + l9);
         System.out.println("f9: " + s_f9 + " / floatValue: " + f9);
         System.out.println("d9: " + s_d9 + " / doubleValue: " + d9);
@@ -251,33 +259,93 @@ public class Kap_9 {
 
         //Metoda toString() - viz tř. Kap_9_MujString
 
-        //Třída stringBuffer
+        //Třída stringBuffer - "měnitelný řetězec"
+        System.out.print("\\u0000: ");
         System.out.println('\u0000');
 
+        //... vytvoření řetězce
         StringBuffer b11_1 = new StringBuffer();
         StringBuffer b11_2 = new StringBuffer(100);
         StringBuffer b11_3 = new StringBuffer("Ahoj");
 
-        System.out.println(b11_1);
-        System.out.println(b11_2);
-        System.out.println(b11_3);
+        System.out.println("b11_1: " + b11_1);
+        System.out.println("b11_3: " + b11_2);
+        System.out.println("b11_3: " + b11_3);
+        System.out.println();
 
-        System.out.println(b11_1.length() + ", " + b11_1.capacity());
-        System.out.println(b11_2.length() + ", " + b11_2.capacity());
-        System.out.println(b11_3.length() + ", " + b11_3.capacity());
+        //... délka řetězce
+        System.out.println("length, capacity:");
+        System.out.println("b11_1: " + b11_1.length() + ", " + b11_1.capacity());
+        System.out.println("b11_2: " + b11_2.length() + ", " + b11_2.capacity());
+        System.out.println("b11_3: " + b11_3.length() + ", " + b11_3.capacity());
         b11_1.setLength(18);
         b11_2.ensureCapacity(110);
         b11_3.setLength(3);
-        System.out.println(b11_1.length() + ", " + b11_1.capacity());
-        System.out.println(b11_2.length() + ", " + b11_2.capacity());
-        System.out.println(b11_3.length() + ", " + b11_3.capacity());
+        System.out.println("b11_1: " + b11_1.length() + ", " + b11_1.capacity());
+        System.out.println("b11_2: " + b11_2.length() + ", " + b11_2.capacity());
+        System.out.println("b11_3: " + b11_3.length() + ", " + b11_3.capacity());
 
+        //změna celého řetězce
         b11_3 = new StringBuffer("Ahoj!");
         System.out.println(b11_3.reverse());
+        System.out.println();
 
+        //změny části řetězce
+        StringBuffer b12 = new StringBuffer("Ahoj ");
+        System.out.println(b12);
 
+        b12.append(true);
+        System.out.println(b12);
+        b12.append(7);
+        System.out.println(b12);
 
+        b12.delete(5, 9); //důležité: viz SUBSTRING
+        System.out.println(b12);
 
+        b12.deleteCharAt(0);
+        System.out.println(b12);
 
+        b12.insert(0, 3.14);
+        b12.insert(1, "HOJ");
+        System.out.println(b12);
+
+        b12.replace(0, 5, "3,"); //důležité: viz SUBSTRING
+        System.out.println(b12);
+
+        System.out.println(b12.charAt(1));
+        b12.setCharAt(1, '!');
+        System.out.println(b12);
+
+        //konverze na String
+        StringBuffer b13 = new StringBuffer("Ahoj");
+        String s13_1, s13_2;
+        s13_1 = b13.toString();
+        s13_2 = b13.substring(0);
+        System.out.println(s13_1);
+        System.out.println(s13_2);
+        System.out.println();
+
+        //třída Character - práce s jednotl. znaky
+        System.out.println(Character.isDigit('1'));
+        System.out.println(Character.isDigit('\u0BE7'));
+        System.out.println(Character.isLetter('A'));
+        System.out.println(Character.isLetterOrDigit('?'));
+        System.out.println(Character.isLowerCase('b'));
+        System.out.println(Character.isUpperCase('B'));
+        System.out.println(Character.isWhitespace('\n'));
+        System.out.println();
+
+        char c14, d14 = 'A';
+        c14 = Character.toLowerCase(d14);
+        System.out.println(d14 + " --> " + c14);
+        d14 = '\u00FD';
+        c14 = Character.toLowerCase(d14);
+        System.out.println(d14 + " --> " + c14);
+        System.out.println();
+
+        int i15 = Character.digit('5', 10);
+        int j15 = Character.digit('F', 16);
+        int k15 = Character.digit('\u0BE7', 10);
+        System.out.println("i15 = " + i15 + ", j15 = " + j15 + ", k15 = " + k15);
     }
 }
