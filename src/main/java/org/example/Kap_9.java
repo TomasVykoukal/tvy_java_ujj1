@@ -170,8 +170,8 @@ public class Kap_9 {
         byte bt8 = 125;
         short sh8 = 32000;
         int i8 = 1234567;
-        long l8 = 45000000000L; //L nutné, jinak "java: integer number too large"
-        float f8 = 3.14F; //F nutné, jinak "java: incompatible types: possible lossy conversion from double to float"
+        long l8 = 45000000000L; //L nutné, jinak "java: integer number too large" (všechny celočís. konstanty jsou implicitně typu int)
+        float f8 = 3.14F; //F nutné, jinak "java: incompatible types: possible lossy conversion from double to float" (reálná konstanta je automaticky typu double)
         double d8 = Math.PI;
 
         String s_b8 = String.valueOf(b8);
@@ -183,13 +183,13 @@ public class Kap_9 {
         String s_d8 = String.valueOf(d8);
 
         //... print[ln] dělá totéž
-        System.out.println("b8: " + b8 + " / valueOf: " + s_b8);
+        System.out.println("b8: "  + b8  + " / valueOf: " + s_b8);
         System.out.println("bt8: " + bt8 + " / valueOf: " + s_bt8);
         System.out.println("sh8: " + sh8 + " / valueOf: " + s_sh8);
-        System.out.println("i8: " + i8 + " / vauleOf: " + s_i8);
-        System.out.println("l8: " + l8 + " / valueOf: " + s_l8);
-        System.out.println("f8: " + f8 + " / valueOf: " + s_f8);
-        System.out.println("d8: " + d8 + " / valueOf: " + s_d8);
+        System.out.println("i8: "  + i8  + " / vauleOf: " + s_i8);
+        System.out.println("l8: "  + l8  + " / valueOf: " + s_l8);
+        System.out.println("f8: "  + f8  + " / valueOf: " + s_f8);
+        System.out.println("d8: "  + d8  + " / valueOf: " + s_d8);
         System.out.println();
 
         //... konverze nutná při dalším textovém zpracování
@@ -236,15 +236,15 @@ public class Kap_9 {
         float   f9  = Float.valueOf(s_f9).floatValue();
         double  d9  = Double.valueOf(s_d9).doubleValue();
 
-        System.out.println("b9: " + s_b9 + " / booleanValue: " + b9);
-        System.out.println("bt9: " + s_bt9 + " / byteValue: " + bt9);
-        System.out.println("sh9: " + s_sh9 + " / shortValue: " + sh9);
-        System.out.println("i9: " + s_i9 + " / intValue: " + i9);
-        System.out.println("i9a: " + s_i9 + " / intValue: " + i9a);
-        System.out.println("i9b: " + s_i9 + " / intValue: " + i9b + " (metoda třídy parseXXX)");
-        System.out.println("l9: " + s_l9 + " / longValue: " + l9);
-        System.out.println("f9: " + s_f9 + " / floatValue: " + f9);
-        System.out.println("d9: " + s_d9 + " / doubleValue: " + d9);
+        System.out.println("b9: "  + s_b9  + " / booleanValue: " + b9);
+        System.out.println("bt9: " + s_bt9 + " / byteValue: "    + bt9);
+        System.out.println("sh9: " + s_sh9 + " / shortValue: "   + sh9);
+        System.out.println("i9: "  + s_i9  + " / intValue: "     + i9);
+        System.out.println("i9a: " + s_i9  + " / intValue: "     + i9a);
+        System.out.println("i9b: " + s_i9  + " / intValue: "     + i9b + " (metoda třídy parseXXX)");
+        System.out.println("l9: "  + s_l9  + " / longValue: "    + l9);
+        System.out.println("f9: "  + s_f9  + " / floatValue: "   + f9);
+        System.out.println("d9: "  + s_d9  + " / doubleValue: "  + d9);
         System.out.println();
 
         double d9_2 = new Double("3.14").doubleValue();
