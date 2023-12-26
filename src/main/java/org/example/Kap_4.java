@@ -16,7 +16,7 @@ public class Kap_4 {
         int i = 4, j = 7;
         System.out.println("Součet je " + i + j);
         System.out.println("Součet je " + (i + j));
-        System.out.println("Součet je " + (i + j) + "\tSoučin je " + (i*j));
+        System.out.println("Součet je " + (i + j) + "\tSoučin je " + (i * j));
         System.out.println("\007Chyba, pokus dělení nulou");
         System.out.println("\u0009Chyba, pokus dělení nulou");
         System.out.println("Toto je \"backslash\": '\\'");
@@ -37,7 +37,7 @@ public class Kap_4 {
         System.out.println("Znak " + c2 + " má ASCII hodnotu: " + (int) c2);
         System.out.println("Znak " + i2 + " má ASCII hodnotu: " + (int) i2);
 
-        //viz public class Kap_4_Vstup{Int|Double|Znaku}
+        //viz public class Kap_4_Vstup{Int|Double|Znaku|...}
 
         int x4 = 3;
         System.out.println("x4 + 1 = " + (x4 + 1));

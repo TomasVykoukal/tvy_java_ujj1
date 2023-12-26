@@ -39,13 +39,19 @@ public class Kap_4_VstupZnaku {
     }
 
     public static void main(String[] args) {
-        /*System.out.println("Odřádkování: " + System.getProperty("line.separator"));
-        System.out.print("ctiZnak: Zadej znak: ");
+        //testovací řádek
+        //System.out.println("Odřádkování: " + System.getProperty("line.separator"));
+
+        //varianta s. 73
+        System.out.print("Zadej znak (ctiZnak): ");
         char c = ctiZnak();
         System.out.println("c = " + c);
-        c = ctiZnak();*/ //neutralizace nového řádku
-        System.out.print("ctiZnakOcist: Zadej znak: ");
+
+        //c = ctiZnak(); //neutralizace nového řádku
+
+        //vlastní varianta s očištěním nového řádku
+        /*System.out.print("Zadej znak (ctiZnakOcist): ");
         char c = ctiZnakOcist();
-        System.out.println("c = " + c);
+        System.out.println("c = " + c);*/
     }
 }

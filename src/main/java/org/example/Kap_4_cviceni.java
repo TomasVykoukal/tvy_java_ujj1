@@ -23,7 +23,7 @@ public class Kap_4_cviceni {
             byte b2 = (byte) c2_in;
             System.out.println("Zadaný znak " + c2_in + " (Unicode hodn. v des. soust.): " + b2);
         }
-            catch (IOException e) {
+        catch (IOException e) {
             System.out.println("Chyba I/O");
         }*/
 
@@ -41,9 +41,8 @@ public class Kap_4_cviceni {
         System.out.println("... jeho celá část: " + l4_out);*/
 
         //cvičení 5
-        /*char c5_in;
-        byte b5_in;
-        char c5_out;
+        /*char c5_in, c5_out;
+        byte b5_in, b5_out;
         System.out.print("(Kap. 4, cvič. 5) Zadejte tři malá písmena: ");
         for (int i = 1; i <= 3; i++) {
             try {
@@ -54,9 +53,9 @@ public class Kap_4_cviceni {
                 if (b5_in < 97 || b5_in > 122){
                     throw new Kap_4_MalePism_Exception();
                 }
-                b5_in -= 32;
-                c5_out = (char) b5_in;
-                System.out.println("  Výstup: " + c5_out);
+                b5_out = (byte) (b5_in - 32); //bez přetypování: java: incompatible types: possible lossy conversion from int to byte
+                c5_out = (char) b5_out;
+                System.out.println("  Výstup: " + c5_out + " (" + b5_out + ")");
             }
             catch (Kap_4_MalePism_Exception e) {
                 System.out.println(e.getMessage());

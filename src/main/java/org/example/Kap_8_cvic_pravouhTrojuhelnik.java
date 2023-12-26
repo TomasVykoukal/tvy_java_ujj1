@@ -1,7 +1,7 @@
 package org.example;
 
 public class Kap_8_cvic_pravouhTrojuhelnik {
-    //cviÄenÃ­ 5
+    //cvièení 5
     private int stranaA;
     private int stranaB;
     private double stranaC;
@@ -12,7 +12,7 @@ public class Kap_8_cvic_pravouhTrojuhelnik {
         this.stranaC = delkaPrepony();
     }
 
-    //cviÄenÃ­ 6
+    //cvièení 6
     public Kap_8_cvic_pravouhTrojuhelnik () {
         this.stranaA = 1;
         this.stranaB = 1;
@@ -23,18 +23,18 @@ public class Kap_8_cvic_pravouhTrojuhelnik {
     }
 
     public double obsah() {
-        return (this.stranaA * this.stranaB) / 2.0; //nutnÃ½ desetinnÃ½ zÃ¡pis, jinak vÃ½sledek celoÄÃ­selnÃ½
+        return (this.stranaA * this.stranaB) / 2.0; //nutnı desetinnı zápis, jinak celoèíselné dìlení (a vısledek neúplnı)
     }
     public void vypisUdaje() {
-        System.out.println("pravoÃºhlÃ½ trojÃºhelnÃ­k pÅ™ep. A: " + this.stranaA + ", pÅ™ep. B: " + this.stranaB + ", pÅ™ep.: " + this.stranaC);
+        System.out.println("pravoúhlı trojúhelník pøep. A: " + this.stranaA + ", pøep. B: " + this.stranaB + ", pøep.: " + this.stranaC);
     }
 
     public static void main(String[] args) {
         Kap_8_cvic_pravouhTrojuhelnik pravTrojuh = new Kap_8_cvic_pravouhTrojuhelnik(4, 5);
         pravTrojuh.vypisUdaje();
-        System.out.println("obsah 3ÃºhelnÃ­ka: " + pravTrojuh.obsah());
+        System.out.println("obsah 3úhelníka: " + pravTrojuh.obsah());
         Kap_8_cvic_pravouhTrojuhelnik pravTrojuh2 = new Kap_8_cvic_pravouhTrojuhelnik();
         pravTrojuh2.vypisUdaje();
-        System.out.println("obsah 3ÃºhelnÃ­ka: " + pravTrojuh2.obsah());
+        System.out.println("obsah 3úhelníka: " + pravTrojuh2.obsah());
     }
 }

@@ -16,7 +16,7 @@ public class Kap_6 {
         return (a + b);
     }
 
-    //vÃ½poÄet faktoriÃ¡lu
+    //vıpoèet faktoriálu
     public static long fakt_rekurs(long n) {
         if (n > 1)
             return n * fakt_rekurs(n - 1);
@@ -31,7 +31,7 @@ public class Kap_6 {
         return n_ret;
     }
 
-    //vÃ½poÄet Fibonacciho Å™ady
+    //vıpoèet Fibonacciho øady
     public static long fib_rekurs(long n) {
         if (n == 0 || n == 1)
             return n;
@@ -44,8 +44,8 @@ public class Kap_6 {
     public static long fib_for(long n) {
         long n_ret = 0;
         if (n >= 2) {
-            long n_ret_m2 = 0; //pÅ™edposlednÃ­ (pozice minus 2)
-            long n_ret_m1 = 1; //poslednÃ­ (pozice minus 1)
+            long n_ret_m2 = 0; //pøedposlední (pozice minus 2)
+            long n_ret_m1 = 1; //poslední (pozice minus 1)
             for (long i = 2; i <= n; i++) {
                 n_ret = n_ret_m2 + n_ret_m1;
                 n_ret_m2 = n_ret_m1;
@@ -57,60 +57,60 @@ public class Kap_6 {
     }
 
     //konverze
-    //explicitnÃ­ zÃºÅ¾ujÃ­cÃ­ typovÃ¡ k.
+    //explicitní zú¾ující typová k.
     static int konv1(double d) {
         return (int) d;
     }
-    //implicitnÃ­ rozÅ¡iÅ™ujÃ­cÃ­ typovÃ¡ k.
+    //implicitní roz¹iøující typová k.
     static double konv2(int d) {
         return d;
     }
 
-    //pÅ™edÃ¡vÃ¡nÃ­ parametrÅ¯ hodnotou (call by value)
+    //pøedávání parametrù hodnotou (call by value)
     static int zmena(int i) {
         i++;
         return i;
     }
 
-    //pÅ™etÃ­Å¾enÃ© metody
+    //pøetí¾ené metody
     static int ctverec(int i) {return i * i;};
     static double ctverec(double i) {return i * i;};
     //static long ctverec(int i) {return i * i;}; //java: method ctverec(int) is already defined in class org.example.Kap_6
     static long ctverec(long i) {return i * i;};
 
     static void tiskPenez(int koruny) {
-        System.out.println("Cena: " + koruny + ",-- KÄ");
+        System.out.println("Cena: " + koruny + ",-- Kè");
     }
     static void tiskPenez(int koruny, int halere) {
-        System.out.println("Cena: " + koruny + "," + halere + " KÄ");
+        System.out.println("Cena: " + koruny + "," + halere + " Kè");
     }
 
-    //viditelnost nelokÃ¡lnÃ­ch promÄ›nnÃ½ch
-    //promÄ›nnÃ¡ tÅ™Ã­dy/instance => nelokÃ¡lnÃ­ "globÃ¡lnÃ­" promÄ›nnÃ¡; inicializace nepovinnÃ¡/volitelnÃ¡
-    static int i_nelok; //... neinicializovanÃ¡
-    static int i_nelok_init = 5; //... volitelnÄ› inicializovanÃ¡
+    //viditelnost nelokálních promìnnıch
+    //promìnná tøídy/statická promìnná => nelokální "globální" promìnná; inicializace nepovinná/volitelná
+    static int i_nelok; //... neinicializovaná
+    static int i_nelok_init = 5; //... volitelnì inicializovaná
 
 
     public static void main(String[] args){
-        System.out.println("VÄ›tÅ¡Ã­ z ÄÃ­sel je: " + max(45, 88));
-        //System.out.println("SouÄet dvou zadanÃ½ch ÄÃ­sel je: " + secti());
+        System.out.println("Vìt¹í z èísel je: " + max(45, 88));
+        //System.out.println("Souèet dvou zadanıch èísel je: " + secti());
 
-        //vÃ½poÄet faktoriÃ¡lu
+        //vıpoèet faktoriálu
         long cas_zacatek = System.nanoTime();
-        System.out.println("faktoriÃ¡l (rekurs) = " + fakt_rekurs(20));
+        System.out.println("faktoriál (rekurs) = " + fakt_rekurs(20));
         long cas_trv_rekurs = System.nanoTime() - cas_zacatek;
-        System.out.println("Doba trvÃ¡nÃ­ rekurze: " + cas_trv_rekurs);
+        System.out.println("Doba trvání rekurze: " + cas_trv_rekurs);
         cas_zacatek = System.nanoTime();
-        System.out.println("faktoriÃ¡l (for)    = " + fakt_for(20));
+        System.out.println("faktoriál (for)    = " + fakt_for(20));
         long cas_trv_for = System.nanoTime() - cas_zacatek;
-        System.out.println("Doba trvÃ¡nÃ­ for: " + cas_trv_for);
+        System.out.println("Doba trvání for: " + cas_trv_for);
         System.out.println("Neefektivnost rekurs (abs): " + (cas_trv_rekurs - cas_trv_for));
-        double neefekt_fakt = (cas_trv_rekurs/cas_trv_for);
-        System.out.print("NÃ¡sobek trvÃ¡nÃ­ rekurz proti for: ");
-        System.out.format(Locale.GERMANY, "%-10.2f%n%n", neefekt_fakt); //todo: dokonÄit zobr. efektivnosti
+        double neefekt_fakt = (cas_trv_rekurs/(float) cas_trv_for); //pøetypování jednoho z operandù (nebo obou) nutné; jinak celoèís. dìlení s celoèís. vısledkem
+        System.out.print("Násobek trvání rekurz proti for: ");
+        System.out.format(Locale.GERMANY, "%-10.2f%n%n", neefekt_fakt);
         System.out.format(Locale.GERMANY, "%-10.4f%n%n", Math.PI);
 
-        //vÃ½poÄet Fibonacciho Å™ady
+        //vıpoèet Fibonacciho øady
         System.out.print("fib (rekurs): ");
         for (long fib_i = 0; fib_i <= 20; fib_i++)
             System.out.print(fib_rekurs(fib_i) + " ");
@@ -120,28 +120,28 @@ public class Kap_6 {
         System.out.println();
 
         cas_zacatek = System.nanoTime();
-        System.out.println("Fibonacci (rekurs) = " + fib_rekurs(30));
+        System.out.println("Fibonacci (rekurs) = " + fib_rekurs(20));
         cas_trv_rekurs = System.nanoTime() - cas_zacatek;
-        System.out.println("Doba trvÃ¡nÃ­ rekurze: " + cas_trv_rekurs);
+        System.out.println("Doba trvání rekurze: " + cas_trv_rekurs);
         cas_zacatek = System.nanoTime();
-        System.out.println("Fibonacci (for)    = " + fib_for(30));
+        System.out.println("Fibonacci (for)    = " + fib_for(20));
         cas_trv_for = System.nanoTime() - cas_zacatek;
-        System.out.println("Doba trvÃ¡nÃ­ for: " + cas_trv_for);
+        System.out.println("Doba trvání for: " + cas_trv_for);
         System.out.println("Neefektivnost rekurs (abs): " + (cas_trv_rekurs - cas_trv_for));
-        neefekt_fakt = (cas_trv_rekurs/cas_trv_for);
-        System.out.print("NÃ¡sobek trvÃ¡nÃ­ rekurz proti for: ");
-        System.out.format(Locale.GERMANY, "%-10.2f%n%n", neefekt_fakt); //todo: dokonÄit zobr. efektivnosti
+        neefekt_fakt = (cas_trv_rekurs/(float) cas_trv_for);
+        System.out.print("Násobek trvání rekurz proti for: ");
+        System.out.format(Locale.GERMANY, "%-10.2f%n%n", neefekt_fakt);
 
         //konverze
         int k = konv1(4);
         double j = konv2((int) 4.5);
 
-        //pÅ™edÃ¡vÃ¡nÃ­ parametrÅ¯ hodnotou (call by value)
+        //pøedávání parametrù hodnotou (call by value)
         int j2, k2 = 4;
         j2 = zmena(k2);
         System.out.println("k2 = " + k2 + ", j2 = " + j2);
 
-        //pÅ™etÃ­Å¾enÃ© metody
+        //pøetí¾ené metody
         int j3 = ctverec(5);
         double d3 = ctverec(5.5);
         long l3 = ctverec(12345L);
@@ -150,51 +150,63 @@ public class Kap_6 {
         tiskPenez(25);
         tiskPenez(25, 50);
 
-        //viditelnost lokÃ¡lnÃ­ch a nelokÃ¡lnÃ­ch promÄ›nnÃ½ch
-        System.out.println("VIDITELNOST PROMÄšNNÃCH - PÅ˜EHLED:");
+        //viditelnost lokálních a nelokálních promìnnıch
+        System.out.println();
+        System.out.println("VIDITELNOST PROMÌNNİCH - PØEHLED:");
         System.out.println("---------------------------------");
 
-        System.out.println("nelokÃ¡lnÃ­ promÄ›nnÃ¡ neinicializovanÃ¡: " + i_nelok);
-        System.out.println("nelokÃ¡lnÃ­ promÄ›nnÃ¡ inicializovanÃ¡: " + i_nelok_init);
+        System.out.println("<<promìnná tøídy/statická promìnná => nelokální \"globální\" promìnná; inicializace nepovinná/volitelná>>");
+        System.out.println("nelokální promìnná (prom. tøídy/statická) neinicializovaná: " + i_nelok);
+        System.out.println("nelokální promìnná (prom. tøídy/statická) inicializovaná: " + i_nelok_init + '\n');
 
-        //redeklarace (pÅ™ekrytÃ­) nelokÃ¡lnÃ­ch promÄ›nnÃ½ch => lokÃ¡lnÃ­ promÄ›nnÃ¡ (v metodÄ›); inicializace povinnÃ¡
+        //redeklarace (pøekrytí, zastínìní) nelokálních promìnnıch => lokální promìnná (v metodì); inicializace povinná
+        System.out.println("<<redeklarace (pøekrytí, zastínìní) nelokálních promìnnıch => lokální promìnná (v metodì); inicializace povinná>>");
         int i_nelok;
         int i_nelok_init = 55;
-        //System.out.println("lokÃ¡lnÃ­ (pÅ™ekrytÃ¡ nelok.) promÄ›nnÃ¡ neinicializovanÃ¡: " + i_nelok); //java: variable i_nelok might not have been initialized
-        System.out.println("lokÃ¡lnÃ­ (pÅ™ekrytÃ¡ nelok.) promÄ›nnÃ¡ neinicializovanÃ¡: java: variable i_nelok might not have been initialized");
-        System.out.println("lokÃ¡lnÃ­ (pÅ™ekrytÃ¡ nelok.) promÄ›nnÃ¡ inicializovanÃ¡: " + i_nelok_init);
-        System.out.println("nelokÃ¡lnÃ­ promÄ›nnÃ¡ inicializovanÃ¡ (plnÄ› kvalif. jmÃ©no): " + Kap_6.i_nelok_init);
+        System.out.println("nelokální promìnná neinicializovaná (plnì kvalif. jméno): " + Kap_6.i_nelok);
+        System.out.println("nelokální promìnná inicializovaná (plnì kvalif. jméno): " + Kap_6.i_nelok_init);
+        //System.out.println("lokální (pøekrytá nelok.) promìnná neinicializovaná: " + i_nelok); //java: variable i_nelok might not have been initialized
+        System.out.println("lokální (pøekrytá nelok.) promìnná neinicializovaná: java: variable i_nelok might not have been initialized");
+        System.out.println("lokální (pøekrytá nelok.) promìnná inicializovaná: " + i_nelok_init + '\n');
 
-        //lokÃ¡lnÃ­ promÄ›nnÃ¡ (v metodÄ›); inicializace povinnÃ¡
+        //lokální promìnná (v metodì); inicializace povinná
+        System.out.println("<<lokální promìnná (v metodì); inicializace povinná>>");
         int i_lok_met;
         int i_lok_met_init = 6;
-        //System.out.println("lokÃ¡lnÃ­ promÄ›nnÃ¡ (v metodÄ›) neinicializovanÃ¡: " + i_lok_met); //java: variable i_lok_met might not have been initialized
-        System.out.println("lokÃ¡lnÃ­ promÄ›nnÃ¡ (v metodÄ›) neinicializovanÃ¡: java: variable i_lok_met might not have been initialized");
-        System.out.println("lokÃ¡lnÃ­ promÄ›nnÃ¡ (v metodÄ›) inicializovanÃ¡: " + i_lok_met_init);
+        //System.out.println("lokální promìnná (v metodì) neinicializovaná: " + i_lok_met); //java: variable i_lok_met might not have been initialized
+        System.out.println("lokální promìnná (v metodì) neinicializovaná: java: variable i_lok_met might not have been initialized");
+        System.out.println("lokální promìnná (v metodì) inicializovaná: " + i_lok_met_init + '\n');
 
-        { //programovÃ½ blok
-            //redeklarace (pÅ™ekrytÃ­) lokÃ¡lnÃ­ch promÄ›nnÃ½ch
-            //int i_lok_met = 7; //java: variable lok_met is already defined in method main(java.lang.String[])
+        { //programovı blok
+            //redeklarace (pøekrytí) lokálních promìnnıch (z metody v prog. bloku)
+            System.out.println("<<redeklarace (pøekrytí) lokálních promìnnıch (z metody v prog. bloku)>>");
+            //int i_lok_met = 7; //java: variable i_lok_met is already defined in method main(java.lang.String[])
             //long i_lok_met = 7; //dito
-            //int i_lok_met_init = 7; //java: variable lok_met_init is already defined in method main(java.lang.String[])
+            System.out.println("lokální (pøekrytá z met. v bloku) promìnná neinicializovaná: java: variable i_lok_met is already defined in method main(java.lang.String[])");
+            //int i_lok_met_init = 7; //java: variable i_lok_met_init is already defined in method main(java.lang.String[])
             //long i_lok_met_init = 7; //dito
+            System.out.println("lokální (pøekrytá z met. v bloku) promìnná inicializovaná: java: variable i_lok_met_init is already defined in method main(java.lang.String[])" + '\n');
 
-            //lokÃ¡lnÃ­ promÄ›nnÃ¡ (v bloku {}); inicializace povinnÃ¡
+            //lokální promìnná (v bloku {...}); inicializace povinná
+            System.out.println("<<lokální promìnná (v bloku {...}); inicializace povinná>>");
             int i_lok_blok;
             int i_lok_blok_init = 8;
-            //System.out.println("lokÃ¡lnÃ­ promÄ›nnÃ¡ (v bloku) neinicializovanÃ¡" + i_lok_blok); //java: variable i_lok_blok might not have been initialized
-            System.out.println("lokÃ¡lnÃ­ promÄ›nnÃ¡ (v bloku) neinicializovanÃ¡: java: variable i_lok_blok might not have been initialized");
-            System.out.println("lokÃ¡lnÃ­ promÄ›nnÃ¡ (v bloku) inicializovanÃ¡: " + i_lok_blok_init);
+            //System.out.println("lokální promìnná (v bloku) neinicializovaná: " + i_lok_blok); //java: variable i_lok_blok might not have been initialized
+            System.out.println("lokální promìnná (v bloku) neinicializovaná: java: variable i_lok_blok might not have been initialized");
+            System.out.println("lokální promìnná (v bloku) inicializovaná: " + i_lok_blok_init + '\n');
         }
-        //System.out.println(j4); //java: cannot find symbol, symbol:   variable j4, location: class org.example.Kap_6
-        //System.out.println("lokÃ¡lnÃ­ promÄ›nnÃ¡ (v bloku) inicializovanÃ¡ vyvolanÃ¡ mimo blok: " + i_lok_blok_init); //java: cannot find symbol; symbol: variable i_lok_blok_init; location: class org.example.Kap_6
-        System.out.println("lokÃ¡lnÃ­ promÄ›nnÃ¡ (v bloku) inicializovanÃ¡ vyvolanÃ¡ mimo blok: java: cannot find symbol; symbol: variable i_lok_blok_init; location: class org.example.Kap_6");
+        //System.out.println("lokální promìnná (v bloku) neinicializovaná vyvolaná mimo blok: " + i_lok_blok); //java: cannot find symbol; symbol: variable i_lok_blok; location: class org.example.Kap_6
+        System.out.println("lokální promìnná (v bloku) neinicializovaná vyvolaná mimo blok: java: cannot find symbol; symbol: variable i_lok_blok; location: class org.example.Kap_6");
+        //System.out.println("lokální promìnná (v bloku) inicializovaná vyvolaná mimo blok: " + i_lok_blok_init); //java: cannot find symbol; symbol: variable i_lok_blok_init; location: class org.example.Kap_6
+        System.out.println("lokální promìnná (v bloku) inicializovaná vyvolaná mimo blok: java: cannot find symbol; symbol: variable i_lok_blok_init; location: class org.example.Kap_6\n");
 
-        //lokÃ¡lnÃ­ promÄ›nnÃ¡ (v bloku FOR); inicializace povinnÃ¡
+        //lokální promìnná (v bloku FOR); inicializace povinná
+        System.out.println("<<lokální promìnná (v bloku FOR); inicializace povinná>>");
         for (int i_lok_for_init = 1; i_lok_for_init <= 1; i_lok_for_init++) {
-            System.out.println("lokÃ¡lnÃ­ promÄ›nnÃ¡ (v bloku FOR) inicializovanÃ¡: " + i_lok_for_init);
+            System.out.println("lokální promìnná (v bloku FOR) neinicializovaná: java: variable i_lok_for_init might not have been initialized");
+            System.out.println("lokální promìnná (v bloku FOR) inicializovaná: " + i_lok_for_init + '\n');
         }
-        //System.out.println("lokÃ¡lnÃ­ promÄ›nnÃ¡ (v bloku FOR) inicializovanÃ¡ vyvolanÃ¡ mimo blok: " + i_lok_for_init); //java: cannot find symbol; symbol: variable i_lok_for_init; location: class org.example.Kap_6
-        System.out.println("lokÃ¡lnÃ­ promÄ›nnÃ¡ (v bloku FOR) inicializovanÃ¡ vyvolanÃ¡ mimo blok: java: cannot find symbol; symbol: variable i_lok_for_init; location: class org.example.Kap_6");
+        //System.out.println("lokální promìnná (v bloku FOR) inicializovaná vyvolaná mimo blok: " + i_lok_for_init); //java: cannot find symbol; symbol: variable i_lok_for_init; location: class org.example.Kap_6
+        System.out.println("lokální promìnná (v bloku FOR) inicializovaná vyvolaná mimo blok: java: cannot find symbol; symbol: variable i_lok_for_init; location: class org.example.Kap_6");
     }
 }

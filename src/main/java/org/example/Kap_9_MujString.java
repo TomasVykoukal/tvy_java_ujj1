@@ -5,11 +5,11 @@ public class Kap_9_MujString {
 
     Kap_9_MujString(int h) {this.hodnota = h;}
 
-    //toString: met. t≈ô√≠dy Object; znakov√° reprezentace objektu
+    //toString: met. t¯Ìdy Object; znakov· reprezentace objektu
     public String toString() {
         String jmenoTridy = new String(getClass().getName());
         //String jmenoTridy = getClass().getName();
-        return ("[" + super.toString() + "] t≈ô√≠da: " + jmenoTridy + " / stav: hodnota = " + this.hodnota);
+        return ("[" + super.toString() + "] t¯Ìda: " + jmenoTridy + " / stav: hodnota = " + this.hodnota);
     }
 
     void puvodniToString() {

@@ -1,20 +1,20 @@
 package org.example;
 
 public class Kap_8_Pokus {
-    public int promInstance;
     public static int promTridy;
+    public int promInstance;
 
     public Kap_8_Pokus(int promInstance, int promTridy) {
-        this.promInstance = promInstance; //standard pro pÅ™Ã­stup k promÄ›nnÃ½m INSTANCE ve TÅ˜ÃDÄš (inst. a jejÃ­ ref. prom. jeÅ¡tÄ› neex.)
-        this.promTridy = promTridy; //techn. moÅ¾nÃ© ale nedoporuÄenÃ­hodnÃ©
-        Kap_8_Pokus.promTridy = promTridy; //standard pro pÅ™Ã­stup k promÄ›nnÃ½m TÅ˜ÃDY ve TÅ˜ÃDÄš
+        this.promInstance = promInstance; //standard pro pøístup k promìnnım INSTANCE ve TØÍDÌ (inst. a její ref. prom. je¹tì neex.)
+        this.promTridy = promTridy; //techn. mo¾né ale nedoporuèeníhodné
+        Kap_8_Pokus.promTridy = promTridy; //standard pro pøístup k promìnnım TØÍDY ve TØÍDÌ
     }
 
     public static void main(String[] args) {
         Kap_8_Pokus p = new Kap_8_Pokus(1, 2);
-        System.out.println(p.promInstance); //standard pro pÅ™Ã­stup k promÄ›nnÃ½m INSTANCE v INSTANCI (mimo deklaraci tÅ™Ã­dy)
-        System.out.println(Kap_8_Pokus.promTridy); //standard pro pÅ™Ã­stup k promÄ›nnÃ½m TÅ˜ÃDY v INSTANCI (mimo deklaraci tÅ™Ã­dy)
+        System.out.println(p.promInstance); //standard pro pøístup k promìnnım INSTANCE v INSTANCI (mimo deklaraci tøídy)
+        System.out.println(Kap_8_Pokus.promTridy); //standard pro pøístup k promìnnım TØÍDY v INSTANCI (mimo deklaraci tøídy)
         //System.out.println(promInstance); //java: non-static variable promInstance cannot be referenced from a static context
-        System.out.println(promTridy); //techn. moÅ¾nÃ© ale mÃ©nÄ› pÅ™ehlednÃ©
+        System.out.println(promTridy); //techn. mo¾né ale ménì pøehledné
     }
 }

@@ -5,25 +5,25 @@ import java.util.Locale;
 public class Kap_9 {
     //java.lang.String
     public static void main(String[] args) {
-        //nejjed. a nejefekt. zpÅ¯sob vytvoÅ™enÃ­ obj. Å™etÄ›zce pÅ™iÅ™azenÃ­m textu do pÅ™Ã­sl. promÄ›nnÃ©
+        //nejjed. a nejefekt. zpùsob vytvoøení obj. øetìzce pøiøazením textu do pøísl. promìnné
         String s = "Ahoj!";
 
-        //ostatnÃ­ zpÅ¯soby vytvoÅ™enÃ­ obj. Å™etÄ›zce pomocÃ­ konstruktorÅ¯ a jejich vÃ½pis
-        byte[] bajty = {(byte)'E', (byte)'v', (byte)'a'}; //pole bajtÅ¯
-        char[] znaky = {'M', 'a', 'r', 't', 'i', 'n', 'a'}; //pole znakÅ¯
-        StringBuffer buf = new StringBuffer("DobrÃ½ den!");
+        //ostatní zpùsoby vytvoøení obj. øetìzce pomocí konstruktorù a jejich vıpis
+        byte[] bajty = {(byte)'E', (byte)'v', (byte)'a'}; //pole bajtù
+        char[] znaky = {'M', 'a', 'r', 't', 'i', 'n', 'a'}; //pole znakù
+        StringBuffer buf = new StringBuffer("Dobrı den!"); //"mìnitelnı" øetìzec
 
-        System.out.println("(" + bajty.length + "): " + bajty[0] + " " + bajty[1] + " " + bajty[2]); //-->69 118 97 (pÅ™Ã­mÃ½ vÃ½stup => ÄÃ­selnÃ¡ interpretace)
-        System.out.println("(" + bajty.length + "): " + (char)bajty[0] + " " + (char)bajty[1] + " " + (char)bajty[2]); //-->E v a (pÅ™etypovÃ¡nÃ­ => textovÃ¡ interpretace)
+        System.out.println("(" + bajty.length + "): " + bajty[0] + " " + bajty[1] + " " + bajty[2]); //-->69 118 97 (pøímı vıstup => èíselná interpretace)
+        System.out.println("(" + bajty.length + "): " + (char)bajty[0] + " " + (char)bajty[1] + " " + (char)bajty[2]); //-->E v a (pøetypování => textová interpretace)
         System.out.println("(" + znaky.length + "): " + znaky[0] + " " + znaky[1] + " " + znaky[2] + " " + znaky[3] + " " + znaky[4] + " " + znaky[5] + " " + znaky[6]);
         System.out.println("(" + buf.length() + "): " + buf);
-        //Pozn. k "length" viz nÃ­Å¾e.
+        //Pozn. k "length" viz ní¾e.
         System.out.println();
 
-        //pÅ™etÃ­Å¾enÃ© konstruktory tÅ™Ã­dy String
+        //pøetí¾ené konstruktory tøídy String
         String s1_1 = new String("Ciao!");
         String s1_2 = new String(s1_1);
-        String s1_3 = new String(bajty); //-->Eva (String => textovÃ¡ interpretace)
+        String s1_3 = new String(bajty); //-->Eva (String => textová interpretace)
         String s1_4 = new String(bajty, 1, 2);
         String s1_5 = new String(znaky);
         String s1_6 = new String(znaky, 3, 4);
@@ -36,22 +36,22 @@ public class Kap_9 {
         System.out.println("s1_5(" + s1_5.length() + "): " + s1_5);
         System.out.println("s1_6(" + s1_6.length() + "): " + s1_6);
         System.out.println("s1_7(" + s1_7.length() + "): " + s1_7);
-        //Pozn. k "length": pole --> promÄ›nnÃ¡ => length; Å™etÄ›zec + StringBuffer --> metoda => length()
+        //Pozn. k "length": pole --> promìnná => length; øetìzec + StringBuffer --> metoda => length()
         System.out.println();
 
-        //inicializovanÃ© pole Å™etÄ›zcÅ¯
+        //inicializované pole øetìzcù
         String[] pole = {"Dana", "Eva", "Martina"};
         for (int i = 0; i < pole.length; i++) {
             System.out.print(pole[i] + " ");
         }
-        System.out.println('\n'); //--> 2x novÃ½ Å™Ã¡dek
+        System.out.println('\n'); //--> 2x novı øádek
 
-        //prÃ¡ce s celÃ½mi Å™etÄ›zci - porovnÃ¡vÃ¡nÃ­
-        //porovnÃ¡nÃ­ Å™etÄ›zcÅ¯ pomocÃ­ funkce => srovnÃ¡vÃ¡ obsah Å™etÄ›zcÅ¯ (nikoliv ref. promÄ›nnÃ©)
+        //práce s celımi øetìzci - porovnávání
+        //porovnání øetìzcù pomocí funkce => srovnává obsah øetìzcù (nikoliv ref. promìnné)
         String s2_1a = new String("ahoi!");
         String s2_1b = new String("ahoi!");
-        String s2_2 = new String("ahoj!");
-        String s2_3 = new String("AHOJ!");
+        String s2_2  = new String("ahoj!");
+        String s2_3  = new String("AHOJ!");
 
         System.out.println("s2_1a: " + s2_1a);
         System.out.println("s2_1b: " + s2_1b);
@@ -74,45 +74,48 @@ public class Kap_9 {
         System.out.println("s2_2.equalsIgnoreCase(s2_3): " + s2_2.equalsIgnoreCase(s2_3) + "  | " + s2_2 + " =  " + s2_3 + " => true (ignore case)");
         System.out.println("--------------");
 
-        //porovnÃ¡nÃ­ Å™etÄ›zcÅ¯ pomocÃ­ operÃ¡toru "==" => srovnÃ¡vÃ¡ ref. promÄ›nnÃ©, nikoliv obsah Å™etÄ›zcÅ¯
+        //porovnání øetìzcù pomocí operátoru "==" => srovnává ref. promìnné, nikoliv obsah øetìzcù
         if (s2_1a == s2_1b) {
             System.out.println("s2_1a == s2_1b");
         } else {
-            System.out.println("neplatÃ­ s2_1a == s2_1b");
+            System.out.println("neplatí s2_1a == s2_1b");
         }
         if (s2_1a == s2_1a) {
             System.out.println("s2_1a == s2_1a");
         } else {
-            System.out.println("neplatÃ­ s2_1a == s2_1a");
+            System.out.println("neplatí s2_1a == s2_1a");
         }
         System.out.println();
 
-        //prÃ¡ce s celÃ½mi Å™etÄ›zci - pÅ™evody na malÃ¡ Äi velkÃ¡ pÃ­smena
-        String s3 = "malÃ¡ a VELKÃ";
-        System.out.println(s3.toLowerCase());
-        System.out.println(s3.toUpperCase());
+        //práce s celımi øetìzci - pøevody na malá èi velká písmena
+        String s3 = "malá a VELKÁ (©tiøín áèïéìíµòàø¹»úùı¾ ÁÈÏÉÌÍ¥ÒÀØ©«Úİ®)";
+        System.out.println("s3:               " + s3);
+        System.out.println("s3.toLowerCase(): " + s3.toLowerCase());
+        System.out.println("s3.toUpperCase(): " + s3.toUpperCase());
         System.out.println();
 
-        //prÃ¡ce s celÃ½mi Å™etÄ›zci - spojenÃ­ Å™etÄ›zcÅ¯
-        String s3_1 = "malÃ¡ a ";
-        String s3_2 = "VELKÃ";
+        //práce s celımi øetìzci - spojení øetìzcù
+        String s3_1 = "malá a ";
+        String s3_2 = "VELKÁ";
         System.out.println(s3_1 + s3_2);
-        System.out.println(s3_1.concat(s3_2));
+        System.out.println(s3_1.concat(s3_2)); //s1.concat(s2) => s1 + s2
+        System.out.println(s3_2.concat(s3_1));
         System.out.println();
 
-        //prÃ¡ce s celÃ½mi Å™etÄ›zci - nÃ¡hrada vÅ¡ech znakÅ¯ v Å™etÄ›zci
+        //práce s celımi øetìzci - náhrada v¹ech znakù v øetìzci
         String s4_2, s4_1 = "cacao";
         s4_2 = s4_1.replace('c', 'k');
         System.out.println(s4_1 + " --> " + s4_2);
         System.out.println();
 
-        //prÃ¡ce s ÄÃ¡stÃ­ Å™etÄ›zce - zÃ­skÃ¡nÃ­ ÄÃ¡sti Å™etÄ›zce
-        String s5_2, s5_3, s5_1 = "malÃ¡ a VELKÃ";
+        //práce s èástí øetìzce - získání èásti øetìzce
+        String s5_2, s5_3, s5_1 = "malá a VELKÁ";
         String istr;
         for (int i = 0; i < s5_1.length(); i++) {
+            //System.out.print(i);  //¹patnì - od 10. pozice tiskne 2-místné pozièní èíslo
             istr = String.valueOf(i);
-            //System.out.print(istr);
-            System.out.print(istr.substring(istr.length()-1)); //tisk 1-cifernÃ©ho poziÄnÃ­ho ÄÃ­sla
+            //System.out.print(istr); //dtto
+            System.out.print(istr.substring(istr.length()-1)); //tisk posl. znaku jako 1-ciferného pozièního èísla
         }
         System.out.println();
         for (int i = 0; i < s5_1.length(); i++) {
@@ -121,57 +124,57 @@ public class Kap_9 {
         System.out.println();
 
         s5_2 = s5_1.substring(5);
-        s5_3 = s5_1.substring(5, 9); //dÅ¯leÅ¾itÃ©: koncovÃ½ index ukazuje na PRVNÃ NEPOUÅ½ITÃ znak ("endIndex: the ending index, exclusive")
-        System.out.println(s5_2);
+        s5_3 = s5_1.substring(5, 9); //dùle¾ité: koncovı index ukazuje na index PRVNÍHO NEPOU®ITÉHO znaku ("endIndex: the ending index, exclusive")
+        System.out.println(s5_2);    //          øeèeno jinak: konèí znakem v zadaném poøadí vèetnì (zde 9. znak tj. znak s indexem 8)
         System.out.println(s5_3);
         System.out.println();
 
-        //umÃ­stÄ›nÃ­ podÅ™etÄ›zce do pole znakÅ¯
+        //umístìní podøetìzce do pole znakù
         char znaky2[] = new char[10];
-        s5_1.getChars(2, 9, znaky2, 0); //dÅ¯leÅ¾itÃ©: viz SUBSTRING ("srcEnd: index after the last character in the string to copy")
+        s5_1.getChars(2, 9, znaky2, 0); //dùle¾ité: viz SUBSTRING ("srcEnd: index after the last character in the string to copy")
         System.out.println(znaky2);
         System.out.println();
 
-        //prÃ¡ce se zaÄÃ¡tkem a koncem Å™etÄ›zce
-        if (s5_1.startsWith("malÃ¡") == true) {
-            System.out.println(s5_1 + " zaÄÃ­nÃ¡ na \"malÃ¡\"");
+        //práce se zaèátkem a koncem øetìzce
+        if (s5_1.startsWith("malá") == true) {
+            System.out.println("Øetìzec \"" + s5_1 + "\" zaèíná na \"malá\"");
         }
-        if (s5_1.endsWith("malÃ¡") == false) {
-            System.out.println(s5_1 + " nekonÄÃ­ na \"malÃ¡\"");
+        if (s5_1.endsWith("malá") == false) {
+            System.out.println("Øetìzec \"" + s5_1 + "\" nekonèí na \"malá\"");
         }
         System.out.println();
 
-        //oÅ™Ã­znutÃ­ bÃ­lÃ½ch znakÅ¯ na okrajÃ­ch
+        //oøíznutí bílıch znakù na okrajích
         String s6_2, s6_1 = "\r\n\t ahoj\t \r\n";
         s6_2 = s6_1.trim();
-        System.out.println("ZaÄÃ¡tek:" + s6_1 + ":konec");
-        System.out.println("ZaÄÃ¡tek:" + s6_2 + ":konec");
+        System.out.println("Zaèátek:" + s6_1 + ":konec");
+        System.out.println("Zaèátek:" + s6_2 + ":konec");
         System.out.println();
 
-        //prÃ¡ce s jednotlivÃ½mi znaÄky Å™etÄ›zce - viz charAt()
+        //práce s jednotlivımi znaèky øetìzce - viz charAt()
 
-        //hledÃ¡nÃ­ znaku
+        //hledání znaku
         String s7 = "mala a VELKA";
         int i7;
         i7 = s7.indexOf('a');
-        System.out.println(s7 + ": PrvnÃ­ \'a\' je na " + i7 + ". pozici");
+        System.out.println(s7 + ": První \'a\' je na " + i7 + ". pozici");
         i7 = s7.indexOf('a', i7 + 1);
-        System.out.println(s7 + ": DalÅ¡Ã­ \'a\' je na " + i7 + ". pozici");
+        System.out.println(s7 + ": Dal¹í \'a\' je na " + i7 + ". pozici");
         i7 = s7.lastIndexOf('a');
-        System.out.println(s7 + ": PoslednÃ­ \'a\' je na " + i7 + ". pozici");
+        System.out.println(s7 + ": Poslední \'a\' je na " + i7 + ". pozici");
         i7 = s7.lastIndexOf('a', i7 - 1);
-        System.out.println(s7 + ": PÅ™edposlednÃ­ \'a\' je na " + i7 + ". pozici");
+        System.out.println(s7 + ": Pøedposlední \'a\' je na " + i7 + ". pozici");
         i7 = s7.lastIndexOf("VEL");
-        System.out.println(s7 + ": PoslednÃ­ \"VEL\" je na " + i7 + ". pozici");
+        System.out.println(s7 + ": Poslední \"VEL\" je na " + i7 + ". pozici");
         System.out.println();
 
-        //konverze zÃ¡kl. dat. typÅ¯ na Å™etÄ›zec
+        //konverze zákl. dat. typù na øetìzec
         boolean b8 = true;
         byte bt8 = 125;
         short sh8 = 32000;
         int i8 = 1234567;
-        long l8 = 45000000000L; //L nutnÃ©, jinak "java: integer number too large" (vÅ¡echny celoÄÃ­s. konstanty jsou implicitnÄ› typu int)
-        float f8 = 3.14F; //F nutnÃ©, jinak "java: incompatible types: possible lossy conversion from double to float" (reÃ¡lnÃ¡ konstanta je automaticky typu double)
+        long l8 = 45000000000L; //L nutné, jinak "java: integer number too large" (v¹echny celoèís. konstanty jsou implicitnì typu INT)
+        float f8 = 3.14F; //F nutné, jinak "java: incompatible types: possible lossy conversion from double to float" (reálná konstanta je automaticky typu DOUBLE)
         double d8 = Math.PI;
 
         String s_b8 = String.valueOf(b8);
@@ -182,7 +185,7 @@ public class Kap_9 {
         String s_f8 = String.valueOf(f8);
         String s_d8 = String.valueOf(d8);
 
-        //... print[ln] dÄ›lÃ¡ totÃ©Å¾
+        //... print[ln] dìlá toté¾
         System.out.println("b8: "  + b8  + " / valueOf: " + s_b8);
         System.out.println("bt8: " + bt8 + " / valueOf: " + s_bt8);
         System.out.println("sh8: " + sh8 + " / valueOf: " + s_sh8);
@@ -192,20 +195,31 @@ public class Kap_9 {
         System.out.println("d8: "  + d8  + " / valueOf: " + s_d8);
         System.out.println();
 
-        //... konverze nutnÃ¡ pÅ™i dalÅ¡Ã­m textovÃ©m zpracovÃ¡nÃ­
+        //... konverze nutná pøi dal¹ím textovém zpracování
         System.out.println(Math.PI);
         s_d8 = String.valueOf(Math.PI);
         i8 = s_d8.indexOf('.');
         s_d8 = s_d8.substring(0, i8 + 6);
-        System.out.println("5 Nachkommastellen: " + s_d8);
+        System.out.print("5 desetinnıch míst: " + s_d8);
+        System.out.println(" [s_d8.indexOf('.'): " + i8 + "]");
         System.out.println();
 
-        //... do jinÃ© ÄÃ­selnÃ© soustavy
+        //... do jiné èíselné soustavy
+        bt8 = 124; //Pro Byte obdobné metody (viz ní¾e) meexistují.
+        sh8 = 254; //Pro Short dtto.
+
         i8 = 254;
-        System.out.println(i8 + ":");
+        System.out.println("(int) " + i8 + ":");
         System.out.println("Integer.toBinaryString(): " + Integer.toBinaryString(i8));
         System.out.println("Integer.toOctalString(): " + Integer.toOctalString(i8));
         System.out.println("Integer.toHexString(): " + Integer.toHexString(i8));
+        System.out.println();
+
+        l8 = 254;
+        System.out.println("(long) " + l8 + ":");
+        System.out.println("Long.toBinaryString(): " + Long.toBinaryString(l8));
+        System.out.println("Long.toOctalString(): " + Long.toOctalString(l8));
+        System.out.println("Long.toHexString(): " + Long.toHexString(l8));
         System.out.println();
 
         System.out.println("Dec: Bin / Oct / Hex");
@@ -217,7 +231,7 @@ public class Kap_9 {
         }
         System.out.println();
 
-        //konverze Å™etÄ›zce na zÃ¡kl. dat. typy
+        //konverze øetìzce na zákl. dat. typy
         String s_b9 = "true";
         String s_bt9 = "125";
         String s_sh9 = "32000";
@@ -231,7 +245,7 @@ public class Kap_9 {
         short   sh9 = Short.valueOf(s_sh9, 10).shortValue();
         int     i9  = Integer.valueOf(s_i9, 10).intValue();
         int     i9a = Integer.valueOf(s_i9, 10); //?
-        int     i9b = Integer.parseInt(s_i9, 10); //existujÃ­ i metody tÅ™Ã­dy parseXXX
+        int     i9b = Integer.parseInt(s_i9, 10); //existují i metody tøídy parseXXX
         long    l9  = Long.valueOf(s_l9, 10).longValue();
         float   f9  = Float.valueOf(s_f9).floatValue();
         double  d9  = Double.valueOf(s_d9).doubleValue();
@@ -241,29 +255,43 @@ public class Kap_9 {
         System.out.println("sh9: " + s_sh9 + " / shortValue: "   + sh9);
         System.out.println("i9: "  + s_i9  + " / intValue: "     + i9);
         System.out.println("i9a: " + s_i9  + " / intValue: "     + i9a);
-        System.out.println("i9b: " + s_i9  + " / intValue: "     + i9b + " (metoda tÅ™Ã­dy parseXXX)");
+        System.out.println("i9b: " + s_i9  + " / intValue: "     + i9b + " (metoda tøídy parseXXX)");
         System.out.println("l9: "  + s_l9  + " / longValue: "    + l9);
         System.out.println("f9: "  + s_f9  + " / floatValue: "   + f9);
         System.out.println("d9: "  + s_d9  + " / doubleValue: "  + d9);
         System.out.println();
 
-        double d9_2 = new Double("3.14").doubleValue();
-        double d9_3 = new Double("3.14"); //?
-        System.out.println(d9_2 + " / " + d9_3);
+        boolean b9c   = new Boolean(s_b9).booleanValue(); //deprecated varianty
+        byte    bt9c  = new Byte(s_bt9).byteValue();
+        short   sh9c  = new Short(s_sh9).shortValue();
+        int     i9c   = new Integer(s_i9).intValue();
+        long    l9c   = new Long(s_l9).longValue();
+        float   f9c   = new Float(s_f9).floatValue();
+        double  d9c   = new Double(s_d9).doubleValue();
+        double  d9c_2 = new Double(s_d9); //?
+
+        System.out.println("b9c:   " + s_b9  + " / booleanValue: " + b9c);
+        System.out.println("bt9c:  " + s_bt9 + " / byteValue: "    + bt9c);
+        System.out.println("sh9c:  " + s_sh9 + " / shortValue: "   + sh9c);
+        System.out.println("i9c:   " + s_i9  + " / intValue: "     + i9c);
+        System.out.println("l9c:   " + s_l9  + " / longValue: "    + l9c);
+        System.out.println("f9c:   " + s_f9  + " / floatValue: "   + f9c);
+        System.out.println("d9c:   " + s_d9  + " / doubleValue: "  + d9c);
+        System.out.println("d9c_2: " + s_d9  + " / doubleValue: "  + d9c_2);
         System.out.println();
 
-        //volÃ¡nÃ­ vÃ­ce metod jednÃ­m pÅ™Ã­kazem
+        //volání více metod jedním pøíkazem
         int i10 =  "\r\n\t cacao\t \r\n".trim().toUpperCase().substring(2).indexOf('O');
         System.out.println("\'O\' je " + (i10 + 1) + ". znak");
         System.out.println();
 
-        //Metoda toString() - viz tÅ™. Kap_9_MujString
+        //Metoda toString() - viz tø. Kap_9_MujString
 
-        //TÅ™Ã­da stringBuffer - "mÄ›nitelnÃ½ Å™etÄ›zec"
+        //Tøída stringBuffer - "mìnitelnı øetìzec"
         System.out.print("\\u0000: ");
         System.out.println('\u0000');
 
-        //... vytvoÅ™enÃ­ Å™etÄ›zce
+        //... vytvoøení øetìzce
         StringBuffer b11_1 = new StringBuffer();
         StringBuffer b11_2 = new StringBuffer(100);
         StringBuffer b11_3 = new StringBuffer("Ahoj");
@@ -273,7 +301,7 @@ public class Kap_9 {
         System.out.println("b11_3: " + b11_3);
         System.out.println();
 
-        //... dÃ©lka Å™etÄ›zce
+        //... délka øetìzce
         System.out.println("length, capacity:");
         System.out.println("b11_1: " + b11_1.length() + ", " + b11_1.capacity());
         System.out.println("b11_2: " + b11_2.length() + ", " + b11_2.capacity());
@@ -285,12 +313,12 @@ public class Kap_9 {
         System.out.println("b11_2: " + b11_2.length() + ", " + b11_2.capacity());
         System.out.println("b11_3: " + b11_3.length() + ", " + b11_3.capacity());
 
-        //zmÄ›na celÃ©ho Å™etÄ›zce
+        //zmìna celého øetìzce
         b11_3 = new StringBuffer("Ahoj!");
         System.out.println(b11_3.reverse());
         System.out.println();
 
-        //zmÄ›ny ÄÃ¡sti Å™etÄ›zce
+        //zmìny èásti øetìzce
         StringBuffer b12 = new StringBuffer("Ahoj ");
         System.out.println(b12);
 
@@ -299,17 +327,18 @@ public class Kap_9 {
         b12.append(7);
         System.out.println(b12);
 
-        b12.delete(5, 9); //dÅ¯leÅ¾itÃ©: viz SUBSTRING
+        b12.delete(5, 9); //dùle¾ité: viz SUBSTRING
         System.out.println(b12);
 
         b12.deleteCharAt(0);
         System.out.println(b12);
 
         b12.insert(0, 3.14);
+        System.out.println(b12);
         b12.insert(1, "HOJ");
         System.out.println(b12);
 
-        b12.replace(0, 5, "3,"); //dÅ¯leÅ¾itÃ©: viz SUBSTRING
+        b12.replace(0, 5, "3,"); //dùle¾ité: viz SUBSTRING
         System.out.println(b12);
 
         System.out.println(b12.charAt(1));
@@ -320,12 +349,15 @@ public class Kap_9 {
         StringBuffer b13 = new StringBuffer("Ahoj");
         String s13_1, s13_2;
         s13_1 = b13.toString();
-        s13_2 = b13.substring(0);
+        s13_2 = b13.substring(1);
         System.out.println(s13_1);
         System.out.println(s13_2);
         System.out.println();
 
-        //tÅ™Ã­da Character - prÃ¡ce s jednotl. znaky
+        //tøída Character - práce s jednotl. znaky
+        //rozpoznávání druhu znakù
+        System.out.println("tamilské èíslice: \u0BE7 \u0BEF");
+
         System.out.println(Character.isDigit('1'));
         System.out.println(Character.isDigit('\u0BE7'));
         System.out.println(Character.isLetter('A'));
@@ -335,14 +367,16 @@ public class Kap_9 {
         System.out.println(Character.isWhitespace('\n'));
         System.out.println();
 
+        //zmìna velikosti písmene
         char c14, d14 = 'A';
         c14 = Character.toLowerCase(d14);
         System.out.println(d14 + " --> " + c14);
         d14 = '\u00FD';
-        c14 = Character.toLowerCase(d14);
+        c14 = Character.toUpperCase(d14);
         System.out.println(d14 + " --> " + c14);
         System.out.println();
 
+        //pøevod jednotlivıch znakù na èísla
         int i15 = Character.digit('5', 10);
         int j15 = Character.digit('F', 16);
         int k15 = Character.digit('\u0BE7', 10);

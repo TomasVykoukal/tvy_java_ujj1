@@ -11,8 +11,8 @@ public class Kap_4_VstupInt {
         try {
             System.in.read(pole);
             nacteno = new String(pole).trim();
-            i = Integer.valueOf(nacteno).intValue();
-            return i;
+            i = Integer.valueOf(nacteno).intValue(); //{Boolean|Byte|Short|...}.valueOf("...") - stat. met.; vrací řetězec zkonvertovaný na objekt třídy přísl. datového typu
+            return i;                                //.{booleanValue|byteValue|shortValue|...}() - tuto třídu převádí na odpovídající základní datový typ
         }
         catch (NumberFormatException e) {
             System.out.print("Číslo " + e.getMessage());

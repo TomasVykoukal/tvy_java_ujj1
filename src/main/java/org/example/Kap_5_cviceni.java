@@ -5,79 +5,77 @@ import java.util.Scanner;
 
 public class Kap_5_cviceni {
     public static void main(String[] args) {
-        //cviÄenÃ­ 1
-        /*System.out.print("Zadej prvnÃ­ celÃ© Äislo: ");
+        //cvièení 1
+        /*System.out.print("Zadej první celé èislo: ");
         int c1_1 = Kap_4_VstupInt.ctiInt();
-        System.out.println();
-        System.out.print("Zadej druhÃ© celÃ© Äislo (odliÅ¡nÃ© od prvnÃ­ho): ");
+        System.out.print("Zadej druhé celé èislo (odli¹né od prvního): ");
         int c1_2 = Kap_4_VstupInt.ctiInt();
         System.out.println();
-        System.out.println("MenÅ¡Ã­ ÄÃ­slo: " + (c1_1 > c1_2 ? c1_2 : c1_1));
-        System.out.println("VÄ›tÅ¡Ã­ ÄÃ­slo: " + (c1_1 > c1_2 ? c1_1 : c1_2));*/
+        System.out.println("Men¹í èíslo: " + (c1_1 > c1_2 ? c1_2 : c1_1));
+        System.out.println("Vìt¹í èíslo: " + (c1_1 > c1_2 ? c1_1 : c1_2));*/
 
-        //cviÄenÃ­ 2
+        //cvièení 2
         /*byte[] pole2 = new byte[2];
         String nacteno2;
         int c2;
-        System.out.print("Zadej Å¡estnÃ¡ctkovÃ© Äislo ({0..9|a..f|A..F}^2: ");
+        System.out.print("Zadej ¹estnáctkové èislo ({0..9|a..f|A..F}^2: ");
         try {
             System.in.read(pole2);
             nacteno2 = new String(pole2).trim();
             c2 = Integer.parseInt(nacteno2, 16);
         }
         catch (NumberFormatException e) {
-            System.out.print("ÄŒÃ­slo " + e.getMessage());
-            System.out.println(" nebylo zadÃ¡no dobÅ™e.");
+            System.out.print("Èíslo " + e.getMessage());
+            System.out.println(" nebylo zadáno dobøe.");
             return;
         }
         catch (IOException e) {
-            System.out.println("Chyba ÄtenÃ­");
+            System.out.println("Chyba ètení");
             return;
         }
-        System.out.println("ZadÃ¡no bylo: " + nacteno2);
-        System.out.println("ZadanÃ© ÄÃ­slo dekadicky: " + c2);*/
+        System.out.println("Zadáno bylo: " + nacteno2);
+        System.out.println("Zadané èíslo dekadicky: " + c2);*/
 
         //Test SCANNER
         /*Scanner sc2 = new Scanner(System.in);
         System.out.print("Zadejte najednou dva znaky: ");
         String s2 = sc2.nextLine();
-        sc2.
         char c2_1 = s2.charAt(0);
         char c2_2 = s2.charAt(1);
         System.out.println("s2: " + s2 + "; c2_1: " + c2_1 + ", c2_2: " + c2_2);*/
 
-        //cviÄenÃ­ 3
+        //cvièení 3
         char c3;
-        //Varianta s WHILE, kdy se ukonÄovacÃ­ znak jiÅ¾ nevyhodnotÃ­
+        //Varianta s WHILE, kdy se ukonèovací znak ji¾ nevyhodnotí
         /*System.out.print("Zadejte znak: ");
         while ((c3 = Kap_4_VstupZnaku.ctiZnak()) != '?') {
             if (c3 != '\n') {
                 if (c3 < '0' || (c3 > '9' & c3 < 'A') || (c3 > 'Z' & c3 < 'a') || c3 > 'z')
-                    System.out.println("InterpunkÄnÃ­ znak");
-                else System.out.println("AlfanumerickÃ½ znak");
+                    System.out.println("Interpunkèní znak");
+                else System.out.println("Alfanumerickı znak");
                 System.out.print("Zadejte znak: ");
             }
         };*/
-        //Varianta s DO-WHILE, kdy se ukonÄovacÃ­ znak jeÅ¡tÄ› vyhodnotÃ­
+        //Varianta s DO-WHILE, kdy se ukonèovací znak je¹tì vyhodnotí
         /*System.out.print("Zadejte znak: ");
         do {
             c3 = Kap_4_VstupZnaku.ctiZnak();
             if (c3 != '\n') {
                 if (c3 < '0' || (c3 > '9' & c3 < 'A') || (c3 > 'Z' & c3 < 'a') || c3 > 'z')
-                    System.out.println("InterpunkÄnÃ­ znak");
-                else System.out.println("AlfanumerickÃ½ znak");
+                    System.out.println("Interpunkèní znak");
+                else System.out.println("Alfanumerickı znak");
                 if (c3 != '?') {
                     System.out.print("Zadejte znak: ");
                 }
             }
         } while (c3 != '?');*/
 
-        //cviÄenÃ­ 4
-        /*System.out.print("Zadejte dÃ©lku obdÃ©lnÃ­ka: ");
+        //cvièení 4
+        /*System.out.print("Zadejte délku obdélníka: ");
         int del4 = Kap_4_VstupInt.ctiInt();
-        System.out.print("Zadejte Å¡Ã­Å™ku obdÃ©lnÃ­ka: ");
+        System.out.print("Zadejte ¹íøku obdélníka: ");
         int sir4 = Kap_4_VstupInt.ctiInt();
-        System.out.println("ZadÃ¡na dÃ©lka a Å¡Ã­Å™ka " + del4 + " a " + sir4);
+        System.out.println("Zadána délka a ¹íøka " + del4 + " a " + sir4);
 
         for (int del_idx = 1; del_idx <= del4; del_idx++) {
             System.out.print('*');
@@ -93,65 +91,68 @@ public class Kap_5_cviceni {
                 System.out.println();
         }*/
 
-        //cviÄenÃ­ 5
+        //cvièení 5
         /*int i5;
         int i5_pocet = 0;
         int i5_max = Integer.MIN_VALUE;
-        System.out.println("Zadejte Å™adu celÃ½ch ÄÃ­sel ukonÄenou nulou.");
-        System.out.print((i5_pocet + 1) + ". ÄÃ­slo: ");
+        System.out.println("Zadejte øadu celıch èísel ukonèenou nulou.");
+        System.out.print((i5_pocet + 1) + ". èíslo: ");
         while ((i5 = Kap_4_VstupInt.ctiInt()) != 0) {
             i5_pocet++;
             if (i5 > i5_max)
                 i5_max = i5;
-            System.out.print((i5_pocet + 1) + ". ÄÃ­slo: ");
+            System.out.print((i5_pocet + 1) + ". èíslo: ");
         }
-        System.out.println("Maximum ze zadanÃ½ch " + i5_pocet + " ÄÃ­sel: " + i5_max);*/
+        System.out.println("Maximum ze zadanıch " + i5_pocet + " èísel: " + i5_max);*/
 
-        //cviÄenÃ­ 6
+        //cvièení 6
         /*int cislo6;
         int i6_pocet_int = 0;
-        System.out.print("Zadejte poÄet zadÃ¡vanÃ½ch celÃ½ch ÄÃ­sel: ");
+        System.out.print("Zadejte poèet zadávanıch celıch èísel: ");
         int i6_pocet = Kap_4_VstupInt.ctiInt();
         for (int i6 = 1; i6 <= i6_pocet; i6++) {
-            System.out.print("Zadejte ÄÃ­slo " + i6 + " / " + i6_pocet + ": ");
+            System.out.print("Zadejte èíslo " + i6 + " / " + i6_pocet + ": ");
             cislo6 = Kap_4_VstupInt.ctiInt();
             if (cislo6 >= 18 & cislo6 <= 32) i6_pocet_int++;
         }
-        System.out.println("V intervalu <18; 32> leÅ¾Ã­ " + i6_pocet_int + " ÄÃ­sel ze zadanÃ½ch " + i6_pocet + " ÄÃ­sel.");*/
+        System.out.println("V intervalu <18; 32> le¾í " + i6_pocet_int + " èísel ze zadanıch " + i6_pocet + " èísel.");*/
 
-        //cviÄenÃ­ 7
-        /*System.out.print("Zadejte celÃ© ÄÃ­slo: ");
+        //cvièení 7
+        /*System.out.print("Zadejte celé èíslo INT: ");
         int cislo7 = Kap_4_VstupInt.ctiInt();
         String str7 = Integer.toString(cislo7);
-        System.out.println("Bylo zadÃ¡no ÄÃ­slo " + cislo7 + " o dÃ©lce " + str7.length() + ".");
+        System.out.println("Bylo zadáno èíslo " + cislo7 + " o délce " + str7.length() + ".");
         for (int i7 = 0; i7 < str7.length(); i7++)
             System.out.print(str7.charAt(i7) + "  ");
         System.out.println();*/
 
-        //cviÄenÃ­ 8
-        //dle autorskÃ©ho Å™eÅ¡enÃ­:
-        /*double e = 1.0, stareE = 0.0;
-        int f = 1, i = 1;
+        //cvièení 8
+        //dle autorského øe¹ení:
+        /*double e1 = 1.0, stareE = 0.0;
+        int f = 1, i1 = 1;
 
-        while (Math.abs(e - stareE) > 1e-7) {
-            stareE = e;
-            f *= i;
-            e += 1.0 / (double) f;
-            i++;
-        }*/
-        //vlastnÃ­ Å™eÅ¡enÃ­:
-        Double e = 0., inkrE = 1.; //iniciaÄnÃ­ hodnota inkr.: 1/0! tj. 1
-        int i = 0;
-        while (inkrE > 1e-15) { //exponent oproti zadÃ¡nÃ­ -7 zmÄ›nÄ›n na -15 pro vÄ›tÅ¡Ã­ pÅ™esnost
-            e = e + inkrE;
-            inkrE = inkrE/++i; //prvnÃ­ iterace: inkr. = 1/1! tj. 1 (kum. 2), dalÅ¡Ã­ iterace: 1/i! (algoritmicky: pÅ™edch. inkr. * 1/i)
+        while (Math.abs(e1 - stareE) > 1e-7) {
+            stareE = e1;
+            f *= i1;
+            e1 += 1.0 / (double) f;
+            i1++;
         }
-        System.out.println("VypoÄtenÃ© e: " + e);
-        System.out.println("KnihovnÃ­  e: " + Math.E);
+        System.out.println("Vypoètené e: " + e1 + " (aut. øe¹ení)");*/
 
-        //cviÄenÃ­ 9
+        //vlastní øe¹ení:
+        /*Double e = 0., inkrE = 1.; //iniciaèní hodnota inkr.: 1/0! tj. 1
+        int i = 0;
+        while (inkrE > 1e-15) { //exponent oproti zadání -7 zmìnìn na -15 pro vìt¹í pøesnost
+            e = e + inkrE;
+            inkrE = inkrE/++i; //první iterace: inkr. = 1/1! tj. 1 (kum. 2), dal¹í iterace: 1/i! (algoritmicky: pøedch. inkr. * 1/i)
+        }
+        System.out.println("Vypoètené e: " + e);
+        System.out.println("Knihovní  e: " + Math.E);*/
+
+        //cvièení 9
         for (int i9 = 1; i9 <= 11; i9++) {
             switch (i9) {
+                //DEFAULT mù¾e bıt i zde a funguje stále správnì
                 case  1: System.out.println("i9: " + i9 + " / Case  1"); break;
                 case  2: System.out.println("i9: " + i9 + " / Case  2"); break;
                 case  3: System.out.println("i9: " + i9 + " / Case  3"); break;
@@ -162,9 +163,8 @@ public class Kap_5_cviceni {
                 case  8: System.out.println("i9: " + i9 + " / Case  8"); break;
                 case  9: System.out.println("i9: " + i9 + " / Case  9"); break;
                 case 10: System.out.println("i9: " + i9 + " / Case 10"); break;
-                default: System.out.println("i9: " + i9 + " tj. jinÃ¡ neÅ¾ 1-10 / Default"); break;
+                default: System.out.println("i9: " + i9 + " tj. jiná ne¾ 1-10 / Default"); break;
             }
         }
-
     }
 }
