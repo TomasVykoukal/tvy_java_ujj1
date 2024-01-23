@@ -34,6 +34,7 @@ public class Kap_13_ObdelnikDalsi extends Kap_13_Usecka implements Kap_13_InfoDa
             //chyba nikoliv bìhem kompilace ale bìhu:
             //Exception in thread "main" java.lang.ClassCastException: class org.example.Kap_13_Usecka cannot be cast to class org.example.Kap_13_InfoDalsi (org.example.Kap_13_Usecka and org.example.Kap_13_InfoDalsi are in unnamed module of loader 'app')
             //at org.example.Kap_13_ObdelnikDalsi.main(Kap_13_ObdelnikDalsi.java:32)
+            //mo¾ná pøíèina problému: instance tøídy je pøetypována na rozhraní, které neimplementuje
         Kap_13_InfoDalsi iud = new Kap_13_UseckaDalsi(6); //bez problému: tø. Kap_13_InfoDalsi implementuje rozhraní Kap_13_InfoDalsi
 
         //metoda mimo rozhraní
