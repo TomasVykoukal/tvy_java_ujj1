@@ -4,28 +4,29 @@ import java.io.*;
 public class Kap_4_VstupInt {
     public static int ctiInt() {
         byte[] pole = new byte[20];
-        //byte pole[] = new byte[20]; //jde takÃ©
+        //byte pole[] = new byte[20]; //jde také
         String nacteno;
         int i;
 
-        try {
+        try { //je-li vynecháno => java: unreported exception java.io.IOException; must be caught or declared to be thrown
             System.in.read(pole);
             nacteno = new String(pole).trim();
-            i = Integer.valueOf(nacteno).intValue(); //{Boolean|Byte|Short|...}.valueOf("...") - stat. met.; vracÃ­ Å™etÄ›zec zkonvertovanÃ½ na objekt tÅ™Ã­dy pÅ™Ã­sl. datovÃ©ho typu
-            return i;                                //.{booleanValue|byteValue|shortValue|...}() - tuto tÅ™Ã­du pÅ™evÃ¡dÃ­ na odpovÃ­dajÃ­cÃ­ zÃ¡kladnÃ­ datovÃ½ typ
+            i = Integer.valueOf(nacteno).intValue(); //{Boolean|Byte|Short|...}.valueOf("...") - stat. met.; vrací øetìzec zkonvertovanı na objekt tøídy pøísl. datového typu
+            return i;                                //.{booleanValue|byteValue|shortValue|...}() - tuto tøídu pøevádí na odpovídající základní datovı typ
         }
         catch (NumberFormatException e) {
-            System.out.print("ÄŒÃ­slo " + e.getMessage());
-            System.out.println(" nebylo zadÃ¡no dobÅ™e.");
+            System.out.print("Èíslo " + e.getMessage());
+            System.out.println(" nebylo zadáno dobøe.");
+            //e.printStackTrace(); //-->vıpis viz Kap_16_PocetCihel
             return 0;
         }
         catch (IOException e) {
-            System.out.println("Chyba ÄtenÃ­");
+            System.out.println("Chyba ètení");
             return 0;
         }
     }
     public static void main(String[] args) {
-        System.out.print("Zadej celÃ© ÄÃ­slo INT: ");
+        System.out.print("Zadej celé èíslo INT: ");
         int i = ctiInt();
         System.out.println("i = " + i);
     }
