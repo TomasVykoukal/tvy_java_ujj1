@@ -20,7 +20,7 @@ class FiltrJm implements FilenameFilter {
     }
 }
 
-public class Kap_17_cvic {
+public class Kap_17_cviceni {
     //cvièení 1-4
     public static void vypisAdr(String adr, String filtrText, String odskok) {
         File rodAdr = new File(adr);
