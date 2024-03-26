@@ -127,7 +127,10 @@ public class Kap_18_IoZnaky {
             out4.newLine(); //... proto ukonèení øádky na výstupu
         }
         fr4.close();
-        //fw4.close(); //výstupní soubor by se uzavøel, ani¾ by se do nìj zapsala data ulo¾ená v bufferu => prázdný výstupní soubor
+        //fw4.close(); //Výstupní soubor by se uzavøel, ani¾ by se do nìj zapsala data ulo¾ená v bufferu => prázdný výstupní soubor.
+                       // => Komplexní závìr: Je tøeba uzavírat (close()) vnìj¹í vrstvu vstupních a výstupních tøíd/vlastností. (Vypozorováno ve v¹ech analogických situacích.)
+                       //    ... Tj. u vstupních tøíd/vlastností je to první vrstva
+                       //    ...   a u výstupních tøíd/vlastností je to poslední vrstva.
                        //Exception in thread "main" java.io.IOException: Stream closed
 	                   //    at java.base/sun.nio.cs.StreamEncoder.ensureOpen(StreamEncoder.java:51)
 	                   //    at java.base/sun.nio.cs.StreamEncoder.write(StreamEncoder.java:125)
@@ -323,7 +326,8 @@ public class Kap_18_IoZnaky {
         System.out.println("\n" + Math.PI + " " + Math.E);
         fw10.writeDouble(Math.PI);
         fw10.writeDouble(Math.E);
-        fwJm10.close();
+        //fwJm10.close(); //Zde lze z nìjakého dùvodu bez chyby uzavøít i tuto vrstvu ...
+        fw10.close();
 
         System.out.println("- fáze výpis ze souboru");
         FileInputStream frJm10 = new FileInputStream("18_4_8_data.bin");
