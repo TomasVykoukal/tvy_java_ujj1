@@ -58,6 +58,11 @@
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/Kap_19_Sy4.java" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/Kap_19_cviceni.java" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/Kap_2.java" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Kap_20_CteniDae.java" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Kap_20_Vlakno1.java" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Kap_20_Vlakno10.java" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Kap_20_Vlakno2.java" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Kap_20_Vlakno5.java" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/Kap_3.java" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/Kap_4_VstupInt.java" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/Kap_5.java" charset="ISO-8859-2" />
@@ -77,6 +82,6 @@
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/Kap_9_MujString.java" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/Kap_9_cviceni.java" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/editor/Kap_12_Balik.java" charset="ISO-8859-2" />
-    <file url="PROJECT" charset="UTF-8" />
+    <file url="PROJECT" charset="ISO-8859-2" />
   </component>
 </project>
